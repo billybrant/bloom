@@ -1,0 +1,14 @@
+name = Address Field Phone
+description = Implements a phone field in an addressfield format handler.
+core = 7.x
+package = Fields
+
+dependencies[] = ctools
+dependencies[] = addressfield
+
+; Information added by drupal.org packaging script on 2013-04-13
+version = "7.x-1.1"
+core = "7.x"
+project = "addressfield_phone"
+datestamp = "1365871511"
+
