@@ -216,8 +216,8 @@ $databases = array (
     'default' => 
     array (
       'database' => 'bloom-dev',
-      'username' => 'bloom-dev',
-      'password' => 'Q?5z%^y>n(gR',
+      'username' => 'bloom',
+      'password' => 'EIw4)bm+{kxz',
       'host' => 'rit-wamp-dev',
       'port' => '3306',
       'driver' => 'mysql',
