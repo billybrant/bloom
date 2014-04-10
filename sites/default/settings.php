@@ -215,7 +215,7 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'bloom-dev',
+      'database' => 'bloom',
       'username' => 'bloom',
       'password' => 'EIw4)bm+{kxz',
       'host' => 'rit-wamp-dev',
