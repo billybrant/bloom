@@ -219,7 +219,7 @@ $databases = array (
       'username' => 'bloom',
       'password' => 'EIw4)bm+{kxz',
       'host' => 'rit-wamp-dev',
-      'port' => '3306',
+      'port' => '',
       'driver' => 'mysql',
       'prefix' => '',
     ),
@@ -256,7 +256,7 @@ $update_free_access = FALSE;
  *   $drupal_hash_salt = file_get_contents('/home/example/salt.txt');
  *
  */
-$drupal_hash_salt = '9ZDQflExmJX3qSZv6kD-SXmtawX-petXglBscHoyV7o';
+$drupal_hash_salt = 'IHQb-TmYA9EdNmtTmRwT1-wRAsObpv7G6KRKlswhmMc';
 
 /**
  * Base URL (optional).
