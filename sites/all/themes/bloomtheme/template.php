@@ -1,94 +1,156 @@
 <?php
 
 /**
- * @file
- * Process theme data.
- *
- * Use this file to run your theme specific implimentations of theme functions,
- * such preprocess, process, alters, and theme function overrides.
- *
- * Preprocess and process functions are used to modify or create variables for
- * templates and theme functions. They are a common theming tool in Drupal, often
- * used as an alternative to directly editing or adding code to templates. Its
- * worth spending some time to learn more about these functions - they are a
- * powerful way to easily modify the output of any template variable.
- *
- * Preprocess and Process Functions SEE: http://drupal.org/node/254940#variables-processor
- * 1. Rename each function and instance of "bloomtheme" to match
- *    your subthemes name, e.g. if your theme name is "footheme" then the function
- *    name will be "footheme_preprocess_hook". Tip - you can search/replace
- *    on "bloomtheme".
- * 2. Uncomment the required function to use.
+ * Add body classes if certain regions have content.
  */
+function BloomTheme_preprocess_html(&$variables) {
+  if (!empty($variables['page']['featured'])) {
+    $variables['classes_array'][] = 'featured';
+  }
 
+  if (!empty($variables['page']['triptych_first'])
+    || !empty($variables['page']['triptych_middle'])
+    || !empty($variables['page']['triptych_last'])) {
+    $variables['classes_array'][] = 'triptych';
+  }
+
+  if (!empty($variables['page']['footer_firstcolumn'])
+    || !empty($variables['page']['footer_secondcolumn'])
+    || !empty($variables['page']['footer_thirdcolumn'])
+    || !empty($variables['page']['footer_fourthcolumn'])) {
+    $variables['classes_array'][] = 'footer-columns';
+  }
+
+  // Add conditional stylesheets for IE
+  drupal_add_css(path_to_theme() . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
+  drupal_add_css(path_to_theme() . '/css/ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE 6', '!IE' => FALSE), 'preprocess' => FALSE));
+}
 
 /**
- * Preprocess variables for the html template.
+ * Override or insert variables into the page template for HTML output.
  */
-/* -- Delete this line to enable.
-function bloomtheme_preprocess_html(&$vars) {
-  global $theme_key;
-
-  // Two examples of adding custom classes to the body.
-
-  // Add a body class for the active theme name.
-  // $vars['classes_array'][] = drupal_html_class($theme_key);
-
-  // Browser/platform sniff - adds body classes such as ipad, webkit, chrome etc.
-  // $vars['classes_array'][] = css_browser_selector();
-
+function BloomTheme_process_html(&$variables) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_html_alter($variables);
+  }
 }
-// */
-
 
 /**
- * Process variables for the html template.
+ * Override or insert variables into the page template.
  */
-/* -- Delete this line if you want to use this function
-function bloomtheme_process_html(&$vars) {
+function BloomTheme_process_page(&$variables) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_page_alter($variables);
+  }
+  // Always print the site name and slogan, but if they are toggled off, we'll
+  // just hide them visually.
+  $variables['hide_site_name']   = theme_get_setting('toggle_name') ? FALSE : TRUE;
+  $variables['hide_site_slogan'] = theme_get_setting('toggle_slogan') ? FALSE : TRUE;
+  if ($variables['hide_site_name']) {
+    // If toggle_name is FALSE, the site_name will be empty, so we rebuild it.
+    $variables['site_name'] = filter_xss_admin(variable_get('site_name', 'Drupal'));
+  }
+  if ($variables['hide_site_slogan']) {
+    // If toggle_site_slogan is FALSE, the site_slogan will be empty, so we rebuild it.
+    $variables['site_slogan'] = filter_xss_admin(variable_get('site_slogan', ''));
+  }
+  // Since the title and the shortcut link are both block level elements,
+  // positioning them next to each other is much simpler with a wrapper div.
+  if (!empty($variables['title_suffix']['add_or_remove_shortcut']) && $variables['title']) {
+    // Add a wrapper div using the title_prefix and title_suffix render elements.
+    $variables['title_prefix']['shortcut_wrapper'] = array(
+      '#markup' => '<div class="shortcut-wrapper clearfix">',
+      '#weight' => 100,
+    );
+    $variables['title_suffix']['shortcut_wrapper'] = array(
+      '#markup' => '</div>',
+      '#weight' => -99,
+    );
+    // Make sure the shortcut link is the first item in title_suffix.
+    $variables['title_suffix']['add_or_remove_shortcut']['#weight'] = -100;
+  }
 }
-// */
-
 
 /**
- * Override or insert variables for the page templates.
+ * Implements hook_preprocess_maintenance_page().
  */
-/* -- Delete this line if you want to use these functions
-function bloomtheme_preprocess_page(&$vars) {
+function BloomTheme_preprocess_maintenance_page(&$variables) {
+  // By default, site_name is set to Drupal if no db connection is available
+  // or during site installation. Setting site_name to an empty string makes
+  // the site and update pages look cleaner.
+  // @see template_preprocess_maintenance_page
+  if (!$variables['db_is_active']) {
+    $variables['site_name'] = '';
+  }
+  drupal_add_css(drupal_get_path('theme', 'BloomTheme') . '/css/maintenance-page.css');
 }
-function bloomtheme_process_page(&$vars) {
-}
-// */
-
 
 /**
- * Override or insert variables into the node templates.
+ * Override or insert variables into the maintenance page template.
  */
-/* -- Delete this line if you want to use these functions
-function bloomtheme_preprocess_node(&$vars) {
+function BloomTheme_process_maintenance_page(&$variables) {
+  // Always print the site name and slogan, but if they are toggled off, we'll
+  // just hide them visually.
+  $variables['hide_site_name']   = theme_get_setting('toggle_name') ? FALSE : TRUE;
+  $variables['hide_site_slogan'] = theme_get_setting('toggle_slogan') ? FALSE : TRUE;
+  if ($variables['hide_site_name']) {
+    // If toggle_name is FALSE, the site_name will be empty, so we rebuild it.
+    $variables['site_name'] = filter_xss_admin(variable_get('site_name', 'Drupal'));
+  }
+  if ($variables['hide_site_slogan']) {
+    // If toggle_site_slogan is FALSE, the site_slogan will be empty, so we rebuild it.
+    $variables['site_slogan'] = filter_xss_admin(variable_get('site_slogan', ''));
+  }
 }
-function bloomtheme_process_node(&$vars) {
-}
-// */
-
 
 /**
- * Override or insert variables into the comment templates.
+ * Override or insert variables into the node template.
  */
-/* -- Delete this line if you want to use these functions
-function bloomtheme_preprocess_comment(&$vars) {
+function BloomTheme_preprocess_node(&$variables) {
+  if ($variables['view_mode'] == 'full' && node_is_page($variables['node'])) {
+    $variables['classes_array'][] = 'node-full';
+  }
 }
-function bloomtheme_process_comment(&$vars) {
-}
-// */
-
 
 /**
- * Override or insert variables into the block templates.
+ * Override or insert variables into the block template.
  */
-/* -- Delete this line if you want to use these functions
-function bloomtheme_preprocess_block(&$vars) {
+function BloomTheme_preprocess_block(&$variables) {
+  // In the header region visually hide block titles.
+  if ($variables['block']->region == 'header') {
+    $variables['title_attributes_array']['class'][] = 'element-invisible';
+  }
 }
-function bloomtheme_process_block(&$vars) {
+
+/**
+ * Implements theme_menu_tree().
+ */
+function BloomTheme_menu_tree($variables) {
+  return '<ul class="menu clearfix">' . $variables['tree'] . '</ul>';
 }
-// */
+
+/**
+ * Implements theme_field__field_type().
+ */
+function BloomTheme_field__taxonomy_term_reference($variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<h3 class="field-label">' . $variables['label'] . ': </h3>';
+  }
+
+  // Render the items.
+  $output .= ($variables['element']['#label_display'] == 'inline') ? '<ul class="links inline">' : '<ul class="links">';
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= '<li class="taxonomy-term-reference-' . $delta . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</li>';
+  }
+  $output .= '</ul>';
+
+  // Render the top-level DIV.
+  $output = '<div class="' . $variables['classes'] . (!in_array('clearfix', $variables['classes_array']) ? ' clearfix' : '') . '"' . $variables['attributes'] .'>' . $output . '</div>';
+
+  return $output;
+}
