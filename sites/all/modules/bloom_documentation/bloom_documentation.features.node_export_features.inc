@@ -11,7 +11,7 @@ function bloom_documentation_node_export_features_default() {
   $node_export = array(
   'code_string' => 'array(
   (object) array(
-      \'vid\' => \'12\',
+      \'vid\' => \'18\',
       \'uid\' => \'1\',
       \'title\' => \'How do I deploy a minor upgrade of drupal to my bloom sites?\',
       \'log\' => \'\',
@@ -20,15 +20,15 @@ function bloom_documentation_node_export_features_default() {
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
       \'vuuid\' => \'b7c7e3f4-bb01-4aad-8c18-583d79a69bcb\',
-      \'nid\' => \'11\',
+      \'nid\' => \'17\',
       \'type\' => \'page\',
       \'language\' => \'und\',
-      \'created\' => \'1399990642\',
-      \'changed\' => \'1399990642\',
+      \'created\' => \'1400003816\',
+      \'changed\' => \'1400006572\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
-      \'uuid\' => \'0ba881a3-3705-46d5-adf9-84d3319213ef\',
-      \'revision_timestamp\' => \'1399990642\',
+      \'uuid\' => \'3395c3b2-42a5-4915-9cc6-c963b4e201e6\',
+      \'revision_timestamp\' => \'1400006572\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -96,7 +96,241 @@ function bloom_documentation_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1399990642\',
+      \'last_comment_timestamp\' => \'1400003816\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => array(
+        \'pid\' => \'1\',
+        \'source\' => \'node/17\',
+        \'alias\' => \'content/how-do-i-deploy-minor-upgrade-drupal-my-bloom-sites\',
+        \'language\' => \'und\',
+      ),
+      \'menu\' => array(
+        \'link_title\' => \'How do I deploy a minor upgrade of drupal to my bloom sites?\',
+        \'mlid\' => 0,
+        \'plid\' => \'1043\',
+        \'menu_name\' => \'main-menu\',
+        \'weight\' => \'-48\',
+        \'options\' => array(),
+        \'module\' => \'menu\',
+        \'expanded\' => \'0\',
+        \'hidden\' => \'0\',
+        \'has_children\' => \'0\',
+        \'customized\' => 0,
+        \'parent_depth_limit\' => 8,
+        \'description\' => \'\',
+        \'enabled\' => 1,
+      ),
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'25\',
+      \'uid\' => \'1\',
+      \'title\' => \'Bloom User Recipes\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'e96f285a-167f-432d-8ddc-5bac0956edf2\',
+      \'nid\' => \'24\',
+      \'type\' => \'page\',
+      \'language\' => \'und\',
+      \'created\' => \'1400003965\',
+      \'changed\' => \'1400006203\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'3a617fd8-d549-4dcc-bb87-01333c47831b\',
+      \'revision_timestamp\' => \'1400006203\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<p>These are step by step recipes for people who are using Bloom to conduct medical research.</p>\\r\\n",
+            \'summary\' => \'\',
+            \'format\' => \'full_html\',
+            \'safe_value\' => "<p>These are step by step recipes for people who are using Bloom to conduct medical research.</p>\\n",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1400003965\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => array(
+        \'pid\' => \'8\',
+        \'source\' => \'node/24\',
+        \'alias\' => \'content/bloom-user-recipes\',
+        \'language\' => \'und\',
+      ),
+      \'menu\' => array(
+        \'link_title\' => \'Bloom User Recipes\',
+        \'mlid\' => 0,
+        \'plid\' => \'1041\',
+        \'menu_name\' => \'main-menu\',
+        \'weight\' => \'-50\',
+        \'options\' => array(),
+        \'module\' => \'menu\',
+        \'expanded\' => \'0\',
+        \'hidden\' => \'0\',
+        \'has_children\' => \'1\',
+        \'customized\' => 0,
+        \'parent_depth_limit\' => 8,
+        \'description\' => \'\',
+        \'enabled\' => 1,
+      ),
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'14\',
+      \'uid\' => \'1\',
+      \'title\' => \'When do I need to change my dev site and do a new release?\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'bdc0d34e-9128-4b95-ac0c-62c4a9f8930b\',
+      \'nid\' => \'13\',
+      \'type\' => \'page\',
+      \'language\' => \'und\',
+      \'created\' => \'1399993132\',
+      \'changed\' => \'1400006628\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'40634370-61ca-42a8-b9f7-0deea99216a7\',
+      \'revision_timestamp\' => \'1400006628\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<h1>When is a New Release Needed?</h1>\\r\\n\\r\\n<p>Bloom employs a software development methodology called \\"Release Management\\". &nbsp;Fundamentally release management is a process where changes to software are performed on a development instance (aka dev) of the application, tested, and then once all is well those changes are \\"pushed\\" to the production through the use of version control software (Bloom uses git).</p>\\r\\n\\r\\n<p>This begs the question \\"What use of Bloom constitutes changes that need to be made to the development instance and pushed?\\" &nbsp;Following are examples of things you do with a Bloom site that do <strong>not </strong>require a new release:</p>\\r\\n\\r\\n<ul>\\r\\n\\t<li>Adding new content</li>\\r\\n\\t<li>Editing existing content</li>\\r\\n\\t<li>Adding users</li>\\r\\n\\t<li>Importing data</li>\\r\\n\\t<li>Exporting data</li>\\r\\n</ul>\\r\\n\\r\\n<p>The following are changes that should be done first to dev and then released:</p>\\r\\n\\r\\n<ul>\\r\\n\\t<li>Changes to themes</li>\\r\\n\\t<li>Creation and modification of content types</li>\\r\\n\\t<li>Addition of Drupal modules</li>\\r\\n\\t<li>Drupal upgrades</li>\\r\\n</ul>\\r\\n",
+            \'summary\' => \'\',
+            \'format\' => \'full_html\',
+            \'safe_value\' => "<h1>When is a New Release Needed?</h1>\\n<p>Bloom employs a software development methodology called \\"Release Management\\".  Fundamentally release management is a process where changes to software are performed on a development instance (aka dev) of the application, tested, and then once all is well those changes are \\"pushed\\" to the production through the use of version control software (Bloom uses git).</p>\\n<p>This begs the question \\"What use of Bloom constitutes changes that need to be made to the development instance and pushed?\\"  Following are examples of things you do with a Bloom site that do <strong>not </strong>require a new release:</p>\\n<ul><li>Adding new content</li>\\n<li>Editing existing content</li>\\n<li>Adding users</li>\\n<li>Importing data</li>\\n<li>Exporting data</li>\\n</ul><p>The following are changes that should be done first to dev and then released:</p>\\n<ul><li>Changes to themes</li>\\n<li>Creation and modification of content types</li>\\n<li>Addition of Drupal modules</li>\\n<li>Drupal upgrades</li>\\n</ul>",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1399993132\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -105,9 +339,9 @@ function bloom_documentation_node_export_features_default() {
       \'data\' => \'b:0;\',
       \'path\' => FALSE,
       \'menu\' => array(
-        \'link_title\' => \'How do I deploy a minor upgrade of drupal to my bloom sites?\',
+        \'link_title\' => \'When do I need to change my dev site and do a new release?\',
         \'mlid\' => 0,
-        \'plid\' => \'1008\',
+        \'plid\' => \'1051\',
         \'menu_name\' => \'main-menu\',
         \'weight\' => \'0\',
         \'options\' => array(),
@@ -123,7 +357,119 @@ function bloom_documentation_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'11\',
+      \'vid\' => \'16\',
+      \'uid\' => \'1\',
+      \'title\' => \'How do I create and push a new release of my Bloom site?\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'46d90d99-1505-43c1-9647-129693d0d3b2\',
+      \'nid\' => \'15\',
+      \'type\' => \'page\',
+      \'language\' => \'und\',
+      \'created\' => \'1399995373\',
+      \'changed\' => \'1400006591\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'4a08bbaa-2b56-4289-a1f5-92e6e583702c\',
+      \'revision_timestamp\' => \'1400006591\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<h1>How do I create and push a new release of my Bloom site?</h1>\\r\\n\\r\\n<ol>\\r\\n\\t<li>Use your web browser to visit your dev instance (e.g. https://MySite-dev.meei.harvard.edu)</li>\\r\\n\\t<li>Make whatever changes you want. &nbsp;Remember you don\'t need to be very careful for two reasons: first it\'s not your production site which is merrily spinning along unaffected as you work in development, and second your entire site is backed up and maintained via version control, so if you break it we can always revert to the last version.</li>\\r\\n\\t<li>Test everything to ensure that not only your new changes are doing what you want them to do, but all the original functionality is still working properly.</li>\\r\\n\\t<li>Once you\'re sure it\'s all as you want visit the <a href=\\"http://bloom.meei.harvard.edu\\">Bloom Service Request Form</a>.</li>\\r\\n\\t<li>Then we:\\r\\n\\t<ol>\\r\\n\\t\\t<li>Logon to the machine that hosts your Bloom production instance</li>\\r\\n\\t\\t<li>Launch a command prompt</li>\\r\\n\\t\\t<li>cd to the directory that holds all your Bloom site content (e.g. e:\\\\UserSites\\\\MySite)</li>\\r\\n\\t\\t<li>Run the command: E:\\\\UserSites\\\\MySite&gt; git pull</li>\\r\\n\\t</ol>\\r\\n\\t</li>\\r\\n\\t<li>Just that easy</li>\\r\\n</ol>\\r\\n",
+            \'summary\' => \'\',
+            \'format\' => \'full_html\',
+            \'safe_value\' => "<h1>How do I create and push a new release of my Bloom site?</h1>\\n<ol><li>Use your web browser to visit your dev instance (e.g. <a href=\\"https://MySite-dev.meei.harvard.edu\\">https://MySite-dev.meei.harvard.edu</a>)</li>\\n<li>Make whatever changes you want.  Remember you don\'t need to be very careful for two reasons: first it\'s not your production site which is merrily spinning along unaffected as you work in development, and second your entire site is backed up and maintained via version control, so if you break it we can always revert to the last version.</li>\\n<li>Test everything to ensure that not only your new changes are doing what you want them to do, but all the original functionality is still working properly.</li>\\n<li>Once you\'re sure it\'s all as you want visit the <a href=\\"http://bloom.meei.harvard.edu\\">Bloom Service Request Form</a>.</li>\\n<li>Then we:\\n<ol><li>Logon to the machine that hosts your Bloom production instance</li>\\n<li>Launch a command prompt</li>\\n<li>cd to the directory that holds all your Bloom site content (e.g. e:\\\\UserSites\\\\MySite)</li>\\n<li>Run the command: E:\\\\UserSites\\\\MySite&gt; git pull</li>\\n</ol></li>\\n<li>Just that easy</li>\\n</ol>",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1399995373\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => FALSE,
+      \'menu\' => array(
+        \'link_title\' => \'How do I create and push a new release of my Bloom site?\',
+        \'mlid\' => 0,
+        \'plid\' => \'1042\',
+        \'menu_name\' => \'main-menu\',
+        \'weight\' => \'-46\',
+        \'options\' => array(),
+        \'module\' => \'menu\',
+        \'expanded\' => \'0\',
+        \'hidden\' => \'0\',
+        \'has_children\' => \'0\',
+        \'customized\' => 0,
+        \'parent_depth_limit\' => 8,
+        \'description\' => \'\',
+        \'enabled\' => 1,
+      ),
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'19\',
       \'uid\' => \'1\',
       \'title\' => \'How do I save a snapshot of a Bloom site?\',
       \'log\' => \'\',
@@ -132,15 +478,15 @@ function bloom_documentation_node_export_features_default() {
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
       \'vuuid\' => \'f059f0f4-915b-43ed-addc-6880e946a6b6\',
-      \'nid\' => \'10\',
+      \'nid\' => \'18\',
       \'type\' => \'page\',
       \'language\' => \'und\',
-      \'created\' => \'1399990440\',
-      \'changed\' => \'1399990440\',
+      \'created\' => \'1400003816\',
+      \'changed\' => \'1400006556\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
-      \'uuid\' => \'2417aea5-329b-468b-b68b-519bfef05d8e\',
-      \'revision_timestamp\' => \'1399990440\',
+      \'uuid\' => \'74ad97dd-27ac-480b-8ea1-2f3ea2fb4371\',
+      \'revision_timestamp\' => \'1400006556\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -208,20 +554,25 @@ function bloom_documentation_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1399990440\',
+      \'last_comment_timestamp\' => \'1400003816\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
       \'name\' => \'admin\',
       \'picture\' => \'0\',
       \'data\' => \'b:0;\',
-      \'path\' => FALSE,
+      \'path\' => array(
+        \'pid\' => \'2\',
+        \'source\' => \'node/18\',
+        \'alias\' => \'content/how-do-i-save-snapshot-bloom-site\',
+        \'language\' => \'und\',
+      ),
       \'menu\' => array(
         \'link_title\' => \'How do I save a snapshot of a Bloom site?\',
         \'mlid\' => 0,
-        \'plid\' => \'1008\',
+        \'plid\' => \'1043\',
         \'menu_name\' => \'main-menu\',
-        \'weight\' => \'0\',
+        \'weight\' => \'-50\',
         \'options\' => array(),
         \'module\' => \'menu\',
         \'expanded\' => \'0\',
@@ -235,477 +586,7 @@ function bloom_documentation_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
-      \'vid\' => \'7\',
-      \'uid\' => \'1\',
-      \'title\' => \'Documentation\',
-      \'log\' => \'\',
-      \'status\' => \'1\',
-      \'comment\' => \'1\',
-      \'promote\' => \'0\',
-      \'sticky\' => \'0\',
-      \'vuuid\' => \'919e098f-5c0c-475e-9362-78ce95b93d6d\',
-      \'nid\' => \'6\',
-      \'type\' => \'page\',
-      \'language\' => \'und\',
-      \'created\' => \'1399989298\',
-      \'changed\' => \'1399989298\',
-      \'tnid\' => \'0\',
-      \'translate\' => \'0\',
-      \'uuid\' => \'27ff6bea-4ac4-424d-b8e7-39742e0a5354\',
-      \'revision_timestamp\' => \'1399989298\',
-      \'revision_uid\' => \'1\',
-      \'body\' => array(
-        \'und\' => array(
-          array(
-            \'value\' => "<p>These docs are organzied as recipes. &nbsp;Choose a recipe from the menu on the left. &nbsp;(Don\'t forget Bloom is just an extensively configured drupal instance, so you can use that enormous mass of books, online help, forums..)</p>\\r\\n",
-            \'summary\' => \'\',
-            \'format\' => \'filtered_html\',
-            \'safe_value\' => "<p>These docs are organzied as recipes.  Choose a recipe from the menu on the left.  (Don\'t forget Bloom is just an extensively configured drupal instance, so you can use that enormous mass of books, online help, forums..)</p>\\n",
-            \'safe_summary\' => \'\',
-          ),
-        ),
-      ),
-      \'rdf_mapping\' => array(
-        \'rdftype\' => array(
-          \'foaf:Document\',
-        ),
-        \'title\' => array(
-          \'predicates\' => array(
-            \'dc:title\',
-          ),
-        ),
-        \'created\' => array(
-          \'predicates\' => array(
-            \'dc:date\',
-            \'dc:created\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-        \'changed\' => array(
-          \'predicates\' => array(
-            \'dc:modified\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-        \'body\' => array(
-          \'predicates\' => array(
-            \'content:encoded\',
-          ),
-        ),
-        \'uid\' => array(
-          \'predicates\' => array(
-            \'sioc:has_creator\',
-          ),
-          \'type\' => \'rel\',
-        ),
-        \'name\' => array(
-          \'predicates\' => array(
-            \'foaf:name\',
-          ),
-        ),
-        \'comment_count\' => array(
-          \'predicates\' => array(
-            \'sioc:num_replies\',
-          ),
-          \'datatype\' => \'xsd:integer\',
-        ),
-        \'last_activity\' => array(
-          \'predicates\' => array(
-            \'sioc:last_activity_date\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-      ),
-      \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1399989298\',
-      \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'1\',
-      \'comment_count\' => \'0\',
-      \'name\' => \'admin\',
-      \'picture\' => \'0\',
-      \'data\' => \'b:0;\',
-      \'path\' => FALSE,
-      \'menu\' => array(
-        \'link_title\' => \'Documentation\',
-        \'mlid\' => 0,
-        \'plid\' => \'0\',
-        \'menu_name\' => \'main-menu\',
-        \'weight\' => \'0\',
-        \'options\' => array(),
-        \'module\' => \'menu\',
-        \'expanded\' => \'0\',
-        \'hidden\' => \'0\',
-        \'has_children\' => \'1\',
-        \'customized\' => 0,
-        \'parent_depth_limit\' => 8,
-        \'description\' => \'\',
-        \'enabled\' => 1,
-      ),
-      \'node_export_drupal_version\' => \'7\',
-    ),
-  (object) array(
-      \'vid\' => \'10\',
-      \'uid\' => \'1\',
-      \'title\' => \'How to Create a New Bloom Development Site\',
-      \'log\' => \'\',
-      \'status\' => \'1\',
-      \'comment\' => \'1\',
-      \'promote\' => \'0\',
-      \'sticky\' => \'0\',
-      \'vuuid\' => \'0b85f8d7-e7ab-405d-a198-da3018ab19b0\',
-      \'nid\' => \'9\',
-      \'type\' => \'page\',
-      \'language\' => \'und\',
-      \'created\' => \'1399990350\',
-      \'changed\' => \'1399990350\',
-      \'tnid\' => \'0\',
-      \'translate\' => \'0\',
-      \'uuid\' => \'54857c27-a10f-46d2-acd4-f970319f0770\',
-      \'revision_timestamp\' => \'1399990350\',
-      \'revision_uid\' => \'1\',
-      \'body\' => array(
-        \'und\' => array(
-          array(
-            \'value\' => "<div>\\r\\n<h1>Creating a bloom development user site</h1>\\r\\n</div>\\r\\n\\r\\n<div>\\r\\n<ul>\\r\\n\\t<li>​Create the database with MySQL Workbench\\r\\n\\t<ol>\\r\\n\\t\\t<li>From the \\"Database\\" menu select \\"Migration Wizard...\\"</li>\\r\\n\\t\\t<li>Accept defaults until you get to the \\"Schema Selection\\" screen, and check only \\"bloom-dev\\"</li>\\r\\n\\t\\t<li>Defaults again until \\"Manual Editing\\",&nbsp;\\r\\n\\t\\t<ol>\\r\\n\\t\\t\\t<li>select \\"All Objects\\" from the drop down on the right</li>\\r\\n\\t\\t\\t<li>target objects column edit the database name changing it to your user-site\'s name</li>\\r\\n\\t\\t\\t<li>note: the last screen \\"Bulk Data Transfer\\" takes about 5 minutes to complete</li>\\r\\n\\t\\t</ol>\\r\\n\\t\\t</li>\\r\\n\\t\\t<li>create the mysql user that drupal will use for access\\r\\n\\t\\t<ol>\\r\\n\\t\\t\\t<li>\\"Users and Privileges\\" menu on left</li>\\r\\n\\t\\t\\t<li>\\"Add Account\\" button</li>\\r\\n\\t\\t\\t<li>Login tab - you set \\"Login Name:\\" and the password</li>\\r\\n\\t\\t\\t<li>\\"Schema Privileges\\" tab&nbsp;\\r\\n\\t\\t\\t<ol>\\r\\n\\t\\t\\t\\t<li>\\"Add Entry\\" button on right\\r\\n\\t\\t\\t\\t<ol>\\r\\n\\t\\t\\t\\t\\t<li>\\"Selected Schema\\" radio button</li>\\r\\n\\t\\t\\t\\t\\t<li>highlight the user-site schema - ok</li>\\r\\n\\t\\t\\t\\t\\t<li>\'Select \\"All\\"\' button, check \\"GRANT OPTION\\"&nbsp;</li>\\r\\n\\t\\t\\t\\t\\t<li>Apply (I do Refresh too)</li>\\r\\n\\t\\t\\t\\t</ol>\\r\\n\\t\\t\\t\\t</li>\\r\\n\\t\\t\\t</ol>\\r\\n\\t\\t\\t</li>\\r\\n\\t\\t</ol>\\r\\n\\t\\t</li>\\r\\n\\t</ol>\\r\\n\\t</li>\\r\\n\\t<li>Create a&nbsp;CNAME or whatever, on rit-wamp-dev I edit the c:/windows/system32/drivers/etc/hosts</li>\\r\\n\\t<li>Add an apache vhost by editing e:\\\\apache24\\\\conf\\\\extra\\\\httpd-vhosts.conf. &nbsp;Just mimic what\'s there.</li>\\r\\n\\t<li>open a command prompt and&nbsp;cd to e:\\\\UserSites</li>\\r\\n\\t<li>\\"E:\\\\UserSites\\\\&gt; git clone file:///e:/UserSites/bloom .\\\\User-site &nbsp; &nbsp; &nbsp; &nbsp;you set .\\\\User-site to the new one</li>\\r\\n\\t<li>Edit e:/usersites/user-site/sites/default/settings.php. &nbsp;Search for \\"bloom\\"; you only need to change&nbsp;those MySQL parameters.</li>\\r\\n\\t<li>Drupal tweaks\\r\\n\\t<ol>\\r\\n\\t\\t<li>browse to http://user-site-dev.meei.harvard.edu</li>\\r\\n\\t\\t<li>login as admin (ask Billy if we haven\'t figured out how to securely store these)</li>\\r\\n\\t\\t<li>click on the configuration menu.&nbsp;Top right \\"Site Information\\" - change the \\"Site Name\\" to user-site.meei.harvard.edu</li>\\r\\n\\t\\t<li>Report main menu -&gt; Status Report -&gt; click the requested stuff (update checks and the like)</li>\\r\\n\\t</ol>\\r\\n\\t</li>\\r\\n</ul>\\r\\n\\r\\n<div>\\r\\n<h2>&nbsp;</h2>\\r\\n</div>\\r\\n</div>\\r\\n",
-            \'summary\' => \'\',
-            \'format\' => \'filtered_html\',
-            \'safe_value\' => "<p>Creating a bloom development user site</p>\\n<ul><li>​Create the database with MySQL Workbench\\n<ol><li>From the \\"Database\\" menu select \\"Migration Wizard...\\"</li>\\n<li>Accept defaults until you get to the \\"Schema Selection\\" screen, and check only \\"bloom-dev\\"</li>\\n<li>Defaults again until \\"Manual Editing\\", \\n<ol><li>select \\"All Objects\\" from the drop down on the right</li>\\n<li>target objects column edit the database name changing it to your user-site\'s name</li>\\n<li>note: the last screen \\"Bulk Data Transfer\\" takes about 5 minutes to complete</li>\\n</ol></li>\\n<li>create the mysql user that drupal will use for access\\n<ol><li>\\"Users and Privileges\\" menu on left</li>\\n<li>\\"Add Account\\" button</li>\\n<li>Login tab - you set \\"Login Name:\\" and the password</li>\\n<li>\\"Schema Privileges\\" tab \\n<ol><li>\\"Add Entry\\" button on right\\n<ol><li>\\"Selected Schema\\" radio button</li>\\n<li>highlight the user-site schema - ok</li>\\n<li>\'Select \\"All\\"\' button, check \\"GRANT OPTION\\" </li>\\n<li>Apply (I do Refresh too)</li>\\n</ol></li>\\n</ol></li>\\n</ol></li>\\n</ol></li>\\n<li>Create a CNAME or whatever, on rit-wamp-dev I edit the c:/windows/system32/drivers/etc/hosts</li>\\n<li>Add an apache vhost by editing e:\\\\apache24\\\\conf\\\\extra\\\\httpd-vhosts.conf.  Just mimic what\'s there.</li>\\n<li>open a command prompt and cd to e:\\\\UserSites</li>\\n<li>\\"E:\\\\UserSites\\\\&gt; git clone file:///e:/UserSites/bloom .\\\\User-site        you set .\\\\User-site to the new one</li>\\n<li>Edit e:/usersites/user-site/sites/default/settings.php.  Search for \\"bloom\\"; you only need to change those MySQL parameters.</li>\\n<li>Drupal tweaks\\n<ol><li>browse to <a href=\\"http://user-site-dev.meei.harvard.edu\\">http://user-site-dev.meei.harvard.edu</a></li>\\n<li>login as admin (ask Billy if we haven\'t figured out how to securely store these)</li>\\n<li>click on the configuration menu. Top right \\"Site Information\\" - change the \\"Site Name\\" to user-site.meei.harvard.edu</li>\\n<li>Report main menu -&gt; Status Report -&gt; click the requested stuff (update checks and the like)</li>\\n</ol></li>\\n</ul><p> </p>\\n",
-            \'safe_summary\' => \'\',
-          ),
-        ),
-      ),
-      \'rdf_mapping\' => array(
-        \'rdftype\' => array(
-          \'foaf:Document\',
-        ),
-        \'title\' => array(
-          \'predicates\' => array(
-            \'dc:title\',
-          ),
-        ),
-        \'created\' => array(
-          \'predicates\' => array(
-            \'dc:date\',
-            \'dc:created\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-        \'changed\' => array(
-          \'predicates\' => array(
-            \'dc:modified\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-        \'body\' => array(
-          \'predicates\' => array(
-            \'content:encoded\',
-          ),
-        ),
-        \'uid\' => array(
-          \'predicates\' => array(
-            \'sioc:has_creator\',
-          ),
-          \'type\' => \'rel\',
-        ),
-        \'name\' => array(
-          \'predicates\' => array(
-            \'foaf:name\',
-          ),
-        ),
-        \'comment_count\' => array(
-          \'predicates\' => array(
-            \'sioc:num_replies\',
-          ),
-          \'datatype\' => \'xsd:integer\',
-        ),
-        \'last_activity\' => array(
-          \'predicates\' => array(
-            \'sioc:last_activity_date\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-      ),
-      \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1399990350\',
-      \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'1\',
-      \'comment_count\' => \'0\',
-      \'name\' => \'admin\',
-      \'picture\' => \'0\',
-      \'data\' => \'b:0;\',
-      \'path\' => FALSE,
-      \'menu\' => array(
-        \'link_title\' => \'How to Create a New Bloom Development Site\',
-        \'mlid\' => 0,
-        \'plid\' => \'1008\',
-        \'menu_name\' => \'main-menu\',
-        \'weight\' => \'0\',
-        \'options\' => array(),
-        \'module\' => \'menu\',
-        \'expanded\' => \'0\',
-        \'hidden\' => \'0\',
-        \'has_children\' => \'0\',
-        \'customized\' => 0,
-        \'parent_depth_limit\' => 8,
-        \'description\' => \'\',
-        \'enabled\' => 1,
-      ),
-      \'node_export_drupal_version\' => \'7\',
-    ),
-  (object) array(
-      \'vid\' => \'3\',
-      \'uid\' => \'31\',
-      \'title\' => \'How do I change the site name?\',
-      \'log\' => \'\',
-      \'status\' => \'1\',
-      \'comment\' => \'2\',
-      \'promote\' => \'0\',
-      \'sticky\' => \'0\',
-      \'vuuid\' => \'13dce6f5-be0b-48da-aee6-71755d8a7a59\',
-      \'nid\' => \'2\',
-      \'type\' => \'faq\',
-      \'language\' => \'und\',
-      \'created\' => \'1398780013\',
-      \'changed\' => \'1399989627\',
-      \'tnid\' => \'0\',
-      \'translate\' => \'0\',
-      \'uuid\' => \'946e8917-803e-4504-a19c-6c2fa0d31776\',
-      \'revision_timestamp\' => \'1399989627\',
-      \'revision_uid\' => \'1\',
-      \'body\' => array(
-        \'und\' => array(
-          array(
-            \'value\' => "<ol>\\r\\n\\t<li>Login as administrator</li>\\r\\n\\t<li>Click the \\"Configuration\\" menu at the top of the screen.</li>\\r\\n\\t<li>Select \\"Site Information\\" in the top left of the body of the page.</li>\\r\\n\\t<li>Change the value of the top field (i.e. \\"Site Name\\")</li>\\r\\n\\t<li>Click \\"Save Configuration\\" at the bottom of the screen.</li>\\r\\n\\t<li>Q.E.D.</li>\\r\\n</ol>\\r\\n",
-            \'summary\' => \'\',
-            \'format\' => \'filtered_html\',
-            \'safe_value\' => "<ol><li>Login as administrator</li>\\n<li>Click the \\"Configuration\\" menu at the top of the screen.</li>\\n<li>Select \\"Site Information\\" in the top left of the body of the page.</li>\\n<li>Change the value of the top field (i.e. \\"Site Name\\")</li>\\n<li>Click \\"Save Configuration\\" at the bottom of the screen.</li>\\n<li>Q.E.D.</li>\\n</ol>",
-            \'safe_summary\' => \'\',
-          ),
-        ),
-      ),
-      \'rdf_mapping\' => array(
-        \'rdftype\' => array(
-          \'sioc:Item\',
-          \'foaf:Document\',
-        ),
-        \'title\' => array(
-          \'predicates\' => array(
-            \'dc:title\',
-          ),
-        ),
-        \'created\' => array(
-          \'predicates\' => array(
-            \'dc:date\',
-            \'dc:created\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-        \'changed\' => array(
-          \'predicates\' => array(
-            \'dc:modified\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-        \'body\' => array(
-          \'predicates\' => array(
-            \'content:encoded\',
-          ),
-        ),
-        \'uid\' => array(
-          \'predicates\' => array(
-            \'sioc:has_creator\',
-          ),
-          \'type\' => \'rel\',
-        ),
-        \'name\' => array(
-          \'predicates\' => array(
-            \'foaf:name\',
-          ),
-        ),
-        \'comment_count\' => array(
-          \'predicates\' => array(
-            \'sioc:num_replies\',
-          ),
-          \'datatype\' => \'xsd:integer\',
-        ),
-        \'last_activity\' => array(
-          \'predicates\' => array(
-            \'sioc:last_activity_date\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-      ),
-      \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1398780013\',
-      \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'31\',
-      \'comment_count\' => \'0\',
-      \'name\' => \'goedicw\',
-      \'picture\' => \'0\',
-      \'data\' => \'a:6:{s:16:"ckeditor_default";s:1:"t";s:20:"ckeditor_show_toggle";s:1:"t";s:14:"ckeditor_width";s:4:"100%";s:13:"ckeditor_lang";s:2:"en";s:18:"ckeditor_auto_lang";s:1:"t";s:7:"overlay";i:1;}\',
-      \'path\' => FALSE,
-      \'menu\' => array(
-        \'link_title\' => \'How do I change the site name?\',
-        \'mlid\' => 0,
-        \'plid\' => \'1008\',
-        \'menu_name\' => \'main-menu\',
-        \'weight\' => \'0\',
-        \'options\' => array(),
-        \'module\' => \'menu\',
-        \'expanded\' => \'0\',
-        \'hidden\' => \'0\',
-        \'has_children\' => \'0\',
-        \'customized\' => 0,
-        \'parent_depth_limit\' => 8,
-        \'description\' => \'\',
-        \'enabled\' => 1,
-      ),
-      \'node_export_drupal_version\' => \'7\',
-      \'node_export_dependency\' => array(
-        array(
-          \'type\' => \'user\',
-          \'id\' => \'31\',
-          \'delta\' => 0,
-          \'property\' => \'uid\',
-          \'module\' => \'node\',
-          \'uuid\' => \'965a1352-72ef-41cf-b650-8fdc1d3a3c28\',
-        ),
-      ),
-    ),
-  (object) array(
-      \'vid\' => \'4\',
-      \'uid\' => \'31\',
-      \'title\' => \'How do I apply updates?\',
-      \'log\' => \'\',
-      \'status\' => \'1\',
-      \'comment\' => \'2\',
-      \'promote\' => \'0\',
-      \'sticky\' => \'0\',
-      \'vuuid\' => \'c1cdb5cf-2782-4c5f-b05c-565983cb65a5\',
-      \'nid\' => \'3\',
-      \'type\' => \'faq\',
-      \'language\' => \'und\',
-      \'created\' => \'1398784032\',
-      \'changed\' => \'1399989537\',
-      \'tnid\' => \'0\',
-      \'translate\' => \'0\',
-      \'uuid\' => \'be0011b9-fcd9-4a74-a96f-3480c72535cd\',
-      \'revision_timestamp\' => \'1399989537\',
-      \'revision_uid\' => \'1\',
-      \'body\' => array(
-        \'und\' => array(
-          array(
-            \'value\' => "<ol>\\r\\n\\t<li>Click on the \\"Reports\\" menu at the top of the page.</li>\\r\\n\\t<li>Select \\"Available updates\\" near the top.</li>\\r\\n\\t<li>Click on \\"check manually\\"</li>\\r\\n\\t<li>Navigate to the \\"Update\\" tab on the upper right.</li>\\r\\n</ol>\\r\\n",
-            \'summary\' => \'\',
-            \'format\' => \'filtered_html\',
-            \'safe_value\' => "<ol><li>Click on the \\"Reports\\" menu at the top of the page.</li>\\n<li>Select \\"Available updates\\" near the top.</li>\\n<li>Click on \\"check manually\\"</li>\\n<li>Navigate to the \\"Update\\" tab on the upper right.</li>\\n</ol>",
-            \'safe_summary\' => \'\',
-          ),
-        ),
-      ),
-      \'rdf_mapping\' => array(
-        \'rdftype\' => array(
-          \'sioc:Item\',
-          \'foaf:Document\',
-        ),
-        \'title\' => array(
-          \'predicates\' => array(
-            \'dc:title\',
-          ),
-        ),
-        \'created\' => array(
-          \'predicates\' => array(
-            \'dc:date\',
-            \'dc:created\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-        \'changed\' => array(
-          \'predicates\' => array(
-            \'dc:modified\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-        \'body\' => array(
-          \'predicates\' => array(
-            \'content:encoded\',
-          ),
-        ),
-        \'uid\' => array(
-          \'predicates\' => array(
-            \'sioc:has_creator\',
-          ),
-          \'type\' => \'rel\',
-        ),
-        \'name\' => array(
-          \'predicates\' => array(
-            \'foaf:name\',
-          ),
-        ),
-        \'comment_count\' => array(
-          \'predicates\' => array(
-            \'sioc:num_replies\',
-          ),
-          \'datatype\' => \'xsd:integer\',
-        ),
-        \'last_activity\' => array(
-          \'predicates\' => array(
-            \'sioc:last_activity_date\',
-          ),
-          \'datatype\' => \'xsd:dateTime\',
-          \'callback\' => \'date_iso8601\',
-        ),
-      ),
-      \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1398784032\',
-      \'last_comment_name\' => NULL,
-      \'last_comment_uid\' => \'31\',
-      \'comment_count\' => \'0\',
-      \'name\' => \'goedicw\',
-      \'picture\' => \'0\',
-      \'data\' => \'a:6:{s:16:"ckeditor_default";s:1:"t";s:20:"ckeditor_show_toggle";s:1:"t";s:14:"ckeditor_width";s:4:"100%";s:13:"ckeditor_lang";s:2:"en";s:18:"ckeditor_auto_lang";s:1:"t";s:7:"overlay";i:1;}\',
-      \'path\' => FALSE,
-      \'menu\' => array(
-        \'link_title\' => \'How do I apply updates?\',
-        \'mlid\' => 0,
-        \'plid\' => \'1008\',
-        \'menu_name\' => \'main-menu\',
-        \'weight\' => \'0\',
-        \'options\' => array(),
-        \'module\' => \'menu\',
-        \'expanded\' => \'0\',
-        \'hidden\' => \'0\',
-        \'has_children\' => \'0\',
-        \'customized\' => 0,
-        \'parent_depth_limit\' => 8,
-        \'description\' => \'\',
-        \'enabled\' => 1,
-      ),
-      \'node_export_drupal_version\' => \'7\',
-      \'node_export_dependency\' => array(
-        array(
-          \'type\' => \'user\',
-          \'id\' => \'31\',
-          \'delta\' => 0,
-          \'property\' => \'uid\',
-          \'module\' => \'node\',
-          \'uuid\' => \'965a1352-72ef-41cf-b650-8fdc1d3a3c28\',
-        ),
-      ),
-    ),
-  (object) array(
-      \'vid\' => \'9\',
+      \'vid\' => \'24\',
       \'uid\' => \'1\',
       \'title\' => \'How to Create a Bloom Infrastructure from Scratch (windows)\',
       \'log\' => \'\',
@@ -714,15 +595,15 @@ function bloom_documentation_node_export_features_default() {
       \'promote\' => \'0\',
       \'sticky\' => \'0\',
       \'vuuid\' => \'a9de082f-e137-468b-93d3-d1c0720e316a\',
-      \'nid\' => \'8\',
+      \'nid\' => \'23\',
       \'type\' => \'page\',
       \'language\' => \'und\',
-      \'created\' => \'1399990132\',
-      \'changed\' => \'1399990222\',
+      \'created\' => \'1400003816\',
+      \'changed\' => \'1400006482\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
-      \'uuid\' => \'e567200e-ac29-4cdb-8de3-40c1eb40ae91\',
-      \'revision_timestamp\' => \'1399990222\',
+      \'uuid\' => \'77c9f314-bdbf-42fa-92b8-5ccb6af501f2\',
+      \'revision_timestamp\' => \'1400006482\',
       \'revision_uid\' => \'1\',
       \'body\' => array(
         \'und\' => array(
@@ -790,7 +671,455 @@ function bloom_documentation_node_export_features_default() {
         ),
       ),
       \'cid\' => \'0\',
-      \'last_comment_timestamp\' => \'1399990132\',
+      \'last_comment_timestamp\' => \'1400003816\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => array(
+        \'pid\' => \'7\',
+        \'source\' => \'node/23\',
+        \'alias\' => \'content/how-create-bloom-infrastructure-scratch-windows\',
+        \'language\' => \'und\',
+      ),
+      \'menu\' => array(
+        \'link_title\' => \'How to Create a Bloom Infrastructure from Scratch (windows)\',
+        \'mlid\' => 0,
+        \'plid\' => \'1043\',
+        \'menu_name\' => \'main-menu\',
+        \'weight\' => \'-47\',
+        \'options\' => array(),
+        \'module\' => \'menu\',
+        \'expanded\' => \'0\',
+        \'hidden\' => \'0\',
+        \'has_children\' => \'0\',
+        \'customized\' => 0,
+        \'parent_depth_limit\' => 8,
+        \'description\' => \'\',
+        \'enabled\' => 1,
+      ),
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'26\',
+      \'uid\' => \'1\',
+      \'title\' => \'How do I get a Bloom site?\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'99e24279-42a0-4317-9851-ad4f94d55c75\',
+      \'nid\' => \'25\',
+      \'type\' => \'page\',
+      \'language\' => \'und\',
+      \'created\' => \'1400007014\',
+      \'changed\' => \'1400007014\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'9e9cec75-6bb3-4873-bb5e-83879d2f1d83\',
+      \'revision_timestamp\' => \'1400007014\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<p>Fill in the \\"Bloom Service Request\\" form just under the Eye &amp; Ear log at the top of this screen.</p>\\r\\n",
+            \'summary\' => \'\',
+            \'format\' => \'full_html\',
+            \'safe_value\' => "<p>Fill in the \\"Bloom Service Request\\" form just under the Eye &amp; Ear log at the top of this screen.</p>\\n",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1400007014\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => FALSE,
+      \'menu\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'21\',
+      \'uid\' => \'1\',
+      \'title\' => \'How to Create a New Bloom Development Site\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'0b85f8d7-e7ab-405d-a198-da3018ab19b0\',
+      \'nid\' => \'20\',
+      \'type\' => \'page\',
+      \'language\' => \'und\',
+      \'created\' => \'1400003816\',
+      \'changed\' => \'1400006540\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'a8538718-5c85-4d52-aca5-13765b7f30ab\',
+      \'revision_timestamp\' => \'1400006540\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<div>\\r\\n<h1>Creating a bloom development user site</h1>\\r\\n</div>\\r\\n\\r\\n<div>\\r\\n<ul>\\r\\n\\t<li>​Create the database with MySQL Workbench\\r\\n\\t<ol>\\r\\n\\t\\t<li>From the \\"Database\\" menu select \\"Migration Wizard...\\"</li>\\r\\n\\t\\t<li>Accept defaults until you get to the \\"Schema Selection\\" screen, and check only \\"bloom-dev\\"</li>\\r\\n\\t\\t<li>Defaults again until \\"Manual Editing\\",&nbsp;\\r\\n\\t\\t<ol>\\r\\n\\t\\t\\t<li>select \\"All Objects\\" from the drop down on the right</li>\\r\\n\\t\\t\\t<li>target objects column edit the database name changing it to your user-site\'s name</li>\\r\\n\\t\\t\\t<li>note: the last screen \\"Bulk Data Transfer\\" takes about 5 minutes to complete</li>\\r\\n\\t\\t</ol>\\r\\n\\t\\t</li>\\r\\n\\t\\t<li>create the mysql user that drupal will use for access\\r\\n\\t\\t<ol>\\r\\n\\t\\t\\t<li>\\"Users and Privileges\\" menu on left</li>\\r\\n\\t\\t\\t<li>\\"Add Account\\" button</li>\\r\\n\\t\\t\\t<li>Login tab - you set \\"Login Name:\\" and the password</li>\\r\\n\\t\\t\\t<li>\\"Schema Privileges\\" tab&nbsp;\\r\\n\\t\\t\\t<ol>\\r\\n\\t\\t\\t\\t<li>\\"Add Entry\\" button on right\\r\\n\\t\\t\\t\\t<ol>\\r\\n\\t\\t\\t\\t\\t<li>\\"Selected Schema\\" radio button</li>\\r\\n\\t\\t\\t\\t\\t<li>highlight the user-site schema - ok</li>\\r\\n\\t\\t\\t\\t\\t<li>\'Select \\"All\\"\' button, check \\"GRANT OPTION\\"&nbsp;</li>\\r\\n\\t\\t\\t\\t\\t<li>Apply (I do Refresh too)</li>\\r\\n\\t\\t\\t\\t</ol>\\r\\n\\t\\t\\t\\t</li>\\r\\n\\t\\t\\t</ol>\\r\\n\\t\\t\\t</li>\\r\\n\\t\\t</ol>\\r\\n\\t\\t</li>\\r\\n\\t</ol>\\r\\n\\t</li>\\r\\n\\t<li>Create a&nbsp;CNAME or whatever, on rit-wamp-dev I edit the c:/windows/system32/drivers/etc/hosts</li>\\r\\n\\t<li>Add an apache vhost by editing e:\\\\apache24\\\\conf\\\\extra\\\\httpd-vhosts.conf. &nbsp;Just mimic what\'s there.</li>\\r\\n\\t<li>open a command prompt and&nbsp;cd to e:\\\\UserSites</li>\\r\\n\\t<li>\\"E:\\\\UserSites\\\\&gt; git clone file:///e:/UserSites/bloom .\\\\User-site &nbsp; &nbsp; &nbsp; &nbsp;you set .\\\\User-site to the new one</li>\\r\\n\\t<li>Edit e:/usersites/user-site/sites/default/settings.php. &nbsp;Search for \\"bloom\\"; you only need to change&nbsp;those MySQL parameters.</li>\\r\\n\\t<li>Drupal tweaks\\r\\n\\t<ol>\\r\\n\\t\\t<li>browse to http://user-site-dev.meei.harvard.edu</li>\\r\\n\\t\\t<li>login as admin (ask Billy if we haven\'t figured out how to securely store these)</li>\\r\\n\\t\\t<li>click on the configuration menu.&nbsp;Top right \\"Site Information\\" - change the \\"Site Name\\" to user-site.meei.harvard.edu</li>\\r\\n\\t\\t<li>Report main menu -&gt; Status Report -&gt; click the requested stuff (update checks and the like)</li>\\r\\n\\t</ol>\\r\\n\\t</li>\\r\\n</ul>\\r\\n\\r\\n<div>\\r\\n<h2>&nbsp;</h2>\\r\\n</div>\\r\\n</div>\\r\\n",
+            \'summary\' => \'\',
+            \'format\' => \'filtered_html\',
+            \'safe_value\' => "<p>Creating a bloom development user site</p>\\n<ul><li>​Create the database with MySQL Workbench\\n<ol><li>From the \\"Database\\" menu select \\"Migration Wizard...\\"</li>\\n<li>Accept defaults until you get to the \\"Schema Selection\\" screen, and check only \\"bloom-dev\\"</li>\\n<li>Defaults again until \\"Manual Editing\\", \\n<ol><li>select \\"All Objects\\" from the drop down on the right</li>\\n<li>target objects column edit the database name changing it to your user-site\'s name</li>\\n<li>note: the last screen \\"Bulk Data Transfer\\" takes about 5 minutes to complete</li>\\n</ol></li>\\n<li>create the mysql user that drupal will use for access\\n<ol><li>\\"Users and Privileges\\" menu on left</li>\\n<li>\\"Add Account\\" button</li>\\n<li>Login tab - you set \\"Login Name:\\" and the password</li>\\n<li>\\"Schema Privileges\\" tab \\n<ol><li>\\"Add Entry\\" button on right\\n<ol><li>\\"Selected Schema\\" radio button</li>\\n<li>highlight the user-site schema - ok</li>\\n<li>\'Select \\"All\\"\' button, check \\"GRANT OPTION\\" </li>\\n<li>Apply (I do Refresh too)</li>\\n</ol></li>\\n</ol></li>\\n</ol></li>\\n</ol></li>\\n<li>Create a CNAME or whatever, on rit-wamp-dev I edit the c:/windows/system32/drivers/etc/hosts</li>\\n<li>Add an apache vhost by editing e:\\\\apache24\\\\conf\\\\extra\\\\httpd-vhosts.conf.  Just mimic what\'s there.</li>\\n<li>open a command prompt and cd to e:\\\\UserSites</li>\\n<li>\\"E:\\\\UserSites\\\\&gt; git clone file:///e:/UserSites/bloom .\\\\User-site        you set .\\\\User-site to the new one</li>\\n<li>Edit e:/usersites/user-site/sites/default/settings.php.  Search for \\"bloom\\"; you only need to change those MySQL parameters.</li>\\n<li>Drupal tweaks\\n<ol><li>browse to <a href=\\"http://user-site-dev.meei.harvard.edu\\">http://user-site-dev.meei.harvard.edu</a></li>\\n<li>login as admin (ask Billy if we haven\'t figured out how to securely store these)</li>\\n<li>click on the configuration menu. Top right \\"Site Information\\" - change the \\"Site Name\\" to user-site.meei.harvard.edu</li>\\n<li>Report main menu -&gt; Status Report -&gt; click the requested stuff (update checks and the like)</li>\\n</ol></li>\\n</ul><p> </p>\\n",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1400003816\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => array(
+        \'pid\' => \'4\',
+        \'source\' => \'node/20\',
+        \'alias\' => \'content/how-create-new-bloom-development-site\',
+        \'language\' => \'und\',
+      ),
+      \'menu\' => array(
+        \'link_title\' => \'How to Create a New Bloom Development Site\',
+        \'mlid\' => 0,
+        \'plid\' => \'1043\',
+        \'menu_name\' => \'main-menu\',
+        \'weight\' => \'-49\',
+        \'options\' => array(),
+        \'module\' => \'menu\',
+        \'expanded\' => \'0\',
+        \'hidden\' => \'0\',
+        \'has_children\' => \'0\',
+        \'customized\' => 0,
+        \'parent_depth_limit\' => 8,
+        \'description\' => \'\',
+        \'enabled\' => 1,
+      ),
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'20\',
+      \'uid\' => \'1\',
+      \'title\' => \'Documentation\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'919e098f-5c0c-475e-9362-78ce95b93d6d\',
+      \'nid\' => \'19\',
+      \'type\' => \'page\',
+      \'language\' => \'und\',
+      \'created\' => \'1400003816\',
+      \'changed\' => \'1400006171\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'d03e7ca1-711d-41fc-a800-295001a5d759\',
+      \'revision_timestamp\' => \'1400006171\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<p>The menu on the left offers different articles documenting Bloom use and administration. &nbsp;(Don\'t forget Bloom is just an extensively configured drupal instance, so you can use that enormous mass of books, online help, forums..)</p>\\r\\n",
+            \'summary\' => \'\',
+            \'format\' => \'full_html\',
+            \'safe_value\' => "<p>The menu on the left offers different articles documenting Bloom use and administration.  (Don\'t forget Bloom is just an extensively configured drupal instance, so you can use that enormous mass of books, online help, forums..)</p>\\n",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1400003816\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => array(
+        \'pid\' => \'3\',
+        \'source\' => \'node/19\',
+        \'alias\' => \'content/documentation\',
+        \'language\' => \'und\',
+      ),
+      \'menu\' => array(
+        \'link_title\' => \'Documentation\',
+        \'mlid\' => 0,
+        \'plid\' => \'0\',
+        \'menu_name\' => \'main-menu\',
+        \'weight\' => \'0\',
+        \'options\' => array(),
+        \'module\' => \'menu\',
+        \'expanded\' => \'0\',
+        \'hidden\' => \'0\',
+        \'has_children\' => \'1\',
+        \'customized\' => 0,
+        \'parent_depth_limit\' => 8,
+        \'description\' => \'\',
+        \'enabled\' => 1,
+      ),
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'13\',
+      \'uid\' => \'1\',
+      \'title\' => \'Narratives\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'73f8ac56-bd6f-44b3-977d-151c6000605d\',
+      \'nid\' => \'12\',
+      \'type\' => \'page\',
+      \'language\' => \'und\',
+      \'created\' => \'1399992399\',
+      \'changed\' => \'1400006609\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'e5c077e7-774f-4d7c-a4c0-17f9f2c596c0\',
+      \'revision_timestamp\' => \'1400006609\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<p>Narratives are a collection of prose regarding different aspects of Bloom design and use.</p>\\r\\n",
+            \'summary\' => \'\',
+            \'format\' => \'filtered_html\',
+            \'safe_value\' => "<p>Narratives are a collection of prose regarding different aspects of Bloom design and use.</p>\\n",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1399992399\',
       \'last_comment_name\' => NULL,
       \'last_comment_uid\' => \'1\',
       \'comment_count\' => \'0\',
@@ -799,16 +1128,128 @@ function bloom_documentation_node_export_features_default() {
       \'data\' => \'b:0;\',
       \'path\' => FALSE,
       \'menu\' => array(
-        \'link_title\' => \'How to Create a Bloom Infrastructure from Scratch (windows)\',
+        \'link_title\' => \'Narratives\',
         \'mlid\' => 0,
-        \'plid\' => \'1008\',
+        \'plid\' => \'1041\',
         \'menu_name\' => \'main-menu\',
-        \'weight\' => \'0\',
+        \'weight\' => \'-48\',
         \'options\' => array(),
         \'module\' => \'menu\',
         \'expanded\' => \'0\',
         \'hidden\' => \'0\',
-        \'has_children\' => \'0\',
+        \'has_children\' => \'1\',
+        \'customized\' => 0,
+        \'parent_depth_limit\' => 8,
+        \'description\' => \'\',
+        \'enabled\' => 1,
+      ),
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'15\',
+      \'uid\' => \'1\',
+      \'title\' => \'Bloom Administration Recipes\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'1\',
+      \'promote\' => \'0\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'88034f18-afaf-49d5-8cb7-714cb68db32d\',
+      \'nid\' => \'14\',
+      \'type\' => \'page\',
+      \'language\' => \'und\',
+      \'created\' => \'1399993200\',
+      \'changed\' => \'1400006460\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'ff7250af-80ef-4443-a14a-5a7c1fc36de8\',
+      \'revision_timestamp\' => \'1400006460\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => "<p>Administration tasks broken into discreet steps.</p>\\r\\n",
+            \'summary\' => \'\',
+            \'format\' => \'full_html\',
+            \'safe_value\' => "<p>Administration tasks broken into discreet steps.</p>\\n",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1399993200\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => FALSE,
+      \'menu\' => array(
+        \'link_title\' => \'Bloom Administration Recipes\',
+        \'mlid\' => 0,
+        \'plid\' => \'1041\',
+        \'menu_name\' => \'main-menu\',
+        \'weight\' => \'-49\',
+        \'options\' => array(),
+        \'module\' => \'menu\',
+        \'expanded\' => \'0\',
+        \'hidden\' => \'0\',
+        \'has_children\' => \'1\',
         \'customized\' => 0,
         \'parent_depth_limit\' => 8,
         \'description\' => \'\',
