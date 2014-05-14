@@ -703,6 +703,129 @@ function bloom_documentation_node_export_features_default() {
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(
+      \'vid\' => \'27\',
+      \'uid\' => \'1\',
+      \'title\' => \'HIPAA_PII\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'2\',
+      \'promote\' => \'1\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'59e94b20-70bc-45cc-8f6d-e3792771c6c2\',
+      \'nid\' => \'26\',
+      \'type\' => \'hipaa_pii\',
+      \'language\' => \'und\',
+      \'created\' => \'1400031105\',
+      \'changed\' => \'1400031105\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'9abf3ab3-d142-4fe9-8385-f96adab6dc79\',
+      \'revision_timestamp\' => \'1400031105\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'Name and address information\',
+            \'summary\' => \'\',
+            \'format\' => \'filtered_html\',
+            \'safe_value\' => "<p>Name and address information</p>\\n",
+            \'safe_summary\' => \'\',
+          ),
+        ),
+      ),
+      \'field_name_address\' => array(
+        \'und\' => array(
+          array(
+            \'country\' => \'US\',
+            \'administrative_area\' => \'\',
+            \'sub_administrative_area\' => NULL,
+            \'locality\' => \'\',
+            \'dependent_locality\' => NULL,
+            \'postal_code\' => \'\',
+            \'thoroughfare\' => \'\',
+            \'premise\' => \'\',
+            \'sub_premise\' => NULL,
+            \'organisation_name\' => \'\',
+            \'name_line\' => \'\',
+            \'first_name\' => \'\',
+            \'last_name\' => \'\',
+            \'data\' => \'a:4:{s:12:"phone_number";s:0:"";s:22:"phone_number_extension";s:0:"";s:13:"mobile_number";s:0:"";s:10:"fax_number";s:0:"";}\',
+            \'phone_number\' => \'\',
+            \'phone_number_extension\' => \'\',
+            \'mobile_number\' => \'\',
+            \'fax_number\' => \'\',
+          ),
+        ),
+      ),
+      \'field_age\' => array(),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1400031105\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => FALSE,
+      \'menu\' => NULL,
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
       \'vid\' => \'26\',
       \'uid\' => \'1\',
       \'title\' => \'How do I get a Bloom site?\',
@@ -1031,6 +1154,125 @@ function bloom_documentation_node_export_features_default() {
         \'description\' => \'\',
         \'enabled\' => 1,
       ),
+      \'node_export_drupal_version\' => \'7\',
+    ),
+  (object) array(
+      \'vid\' => \'28\',
+      \'uid\' => \'1\',
+      \'title\' => \'HIPAA_PII\',
+      \'log\' => \'\',
+      \'status\' => \'1\',
+      \'comment\' => \'2\',
+      \'promote\' => \'1\',
+      \'sticky\' => \'0\',
+      \'vuuid\' => \'b27a711c-3030-444d-8043-f466f5300f15\',
+      \'nid\' => \'27\',
+      \'type\' => \'hipaa_pii\',
+      \'language\' => \'und\',
+      \'created\' => \'1400031375\',
+      \'changed\' => \'1400031375\',
+      \'tnid\' => \'0\',
+      \'translate\' => \'0\',
+      \'uuid\' => \'d7bec960-7529-4379-8670-47341232eb3e\',
+      \'revision_timestamp\' => \'1400031375\',
+      \'revision_uid\' => \'1\',
+      \'body\' => array(),
+      \'field_name_address\' => array(
+        \'und\' => array(
+          array(
+            \'country\' => \'US\',
+            \'administrative_area\' => \'\',
+            \'sub_administrative_area\' => NULL,
+            \'locality\' => \'\',
+            \'dependent_locality\' => NULL,
+            \'postal_code\' => \'\',
+            \'thoroughfare\' => \'\',
+            \'premise\' => \'\',
+            \'sub_premise\' => NULL,
+            \'organisation_name\' => \'\',
+            \'name_line\' => \'\',
+            \'first_name\' => \'\',
+            \'last_name\' => \'\',
+            \'data\' => \'a:4:{s:12:"phone_number";s:0:"";s:22:"phone_number_extension";s:0:"";s:13:"mobile_number";s:0:"";s:10:"fax_number";s:0:"";}\',
+            \'phone_number\' => \'\',
+            \'phone_number_extension\' => \'\',
+            \'mobile_number\' => \'\',
+            \'fax_number\' => \'\',
+          ),
+        ),
+      ),
+      \'field_age\' => array(
+        \'und\' => array(
+          array(
+            \'value\' => \'73\',
+          ),
+        ),
+      ),
+      \'rdf_mapping\' => array(
+        \'rdftype\' => array(
+          \'sioc:Item\',
+          \'foaf:Document\',
+        ),
+        \'title\' => array(
+          \'predicates\' => array(
+            \'dc:title\',
+          ),
+        ),
+        \'created\' => array(
+          \'predicates\' => array(
+            \'dc:date\',
+            \'dc:created\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'changed\' => array(
+          \'predicates\' => array(
+            \'dc:modified\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+        \'body\' => array(
+          \'predicates\' => array(
+            \'content:encoded\',
+          ),
+        ),
+        \'uid\' => array(
+          \'predicates\' => array(
+            \'sioc:has_creator\',
+          ),
+          \'type\' => \'rel\',
+        ),
+        \'name\' => array(
+          \'predicates\' => array(
+            \'foaf:name\',
+          ),
+        ),
+        \'comment_count\' => array(
+          \'predicates\' => array(
+            \'sioc:num_replies\',
+          ),
+          \'datatype\' => \'xsd:integer\',
+        ),
+        \'last_activity\' => array(
+          \'predicates\' => array(
+            \'sioc:last_activity_date\',
+          ),
+          \'datatype\' => \'xsd:dateTime\',
+          \'callback\' => \'date_iso8601\',
+        ),
+      ),
+      \'cid\' => \'0\',
+      \'last_comment_timestamp\' => \'1400031375\',
+      \'last_comment_name\' => NULL,
+      \'last_comment_uid\' => \'1\',
+      \'comment_count\' => \'0\',
+      \'name\' => \'admin\',
+      \'picture\' => \'0\',
+      \'data\' => \'b:0;\',
+      \'path\' => FALSE,
+      \'menu\' => NULL,
       \'node_export_drupal_version\' => \'7\',
     ),
   (object) array(

@@ -249,6 +249,24 @@ function bloom_documentation_menu_default_menu_links() {
     'customized' => 1,
     'parent_identifier' => 'main-menu_documentation:node/19',
   );
+  // Exported menu link: main-menu_what-provisions-does-bloom-provide-regarding-hipaa-compliance:node/28
+  $menu_links['main-menu_what-provisions-does-bloom-provide-regarding-hipaa-compliance:node/28'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/28',
+    'router_path' => 'node/%',
+    'link_title' => 'What provisions does Bloom provide regarding HIPAA compliance?',
+    'options' => array(
+      'identifier' => 'main-menu_what-provisions-does-bloom-provide-regarding-hipaa-compliance:node/28',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'main-menu_narratives:node/12',
+  );
   // Exported menu link: main-menu_when-do-i-need-to-change-my-dev-site-and-do-a-new-release:node/13
   $menu_links['main-menu_when-do-i-need-to-change-my-dev-site-and-do-a-new-release:node/13'] = array(
     'menu_name' => 'main-menu',
@@ -282,6 +300,7 @@ function bloom_documentation_menu_default_menu_links() {
   t('How to Create a Bloom Infrastructure from Scratch (windows)');
   t('How to Create a New Bloom Development Site');
   t('Narratives');
+  t('What provisions does Bloom provide regarding HIPAA compliance?');
   t('When do I need to change my dev site and do a new release?');
 
 
