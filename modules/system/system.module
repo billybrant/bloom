@@ -3360,7 +3360,7 @@ function system_time_zones($blank = NULL) {
  */
 function system_check_http_request() {
   // Try to get the content of the front page via drupal_http_request().
-  $result = drupal_http_request(url('http://www.google.com', array('absolute' => TRUE)), array('max_redirects' => 0));
+  $result = drupal_http_request(url('', array('absolute' => TRUE)), array('max_redirects' => 0));
   // We only care that we get a http response - this means that Drupal
   // can make a http request.
   $works = isset($result->code) && ($result->code >= 100) && ($result->code < 600);
@@ -3422,30 +3422,32 @@ function system_image_toolkits() {
 /**
  * Attempts to get a file using drupal_http_request and to store it locally.
  *
- * @param $url
+ * @param string $url
  *   The URL of the file to grab.
- *
- * @param $destination
+ * @param string $destination
  *   Stream wrapper URI specifying where the file should be placed. If a
  *   directory path is provided, the file is saved into that directory under
  *   its original name. If the path contains a filename as well, that one will
  *   be used instead.
  *   If this value is omitted, the site's default files scheme will be used,
  *   usually "public://".
- *
- * @param $managed boolean
+ * @param bool $managed
  *   If this is set to TRUE, the file API hooks will be invoked and the file is
  *   registered in the database.
- *
- * @param $replace boolean
+ * @param int $replace
  *   Replace behavior when the destination file already exists:
  *   - FILE_EXISTS_REPLACE: Replace the existing file.
  *   - FILE_EXISTS_RENAME: Append _{incrementing number} until the filename is
  *     unique.
  *   - FILE_EXISTS_ERROR: Do nothing and return FALSE.
  *
- * @return
- *   On success the location the file was saved to, FALSE on failure.
+ * @return mixed
+ *   One of these possibilities:
+ *   - If it succeeds and $managed is FALSE, the location where the file was
+ *     saved.
+ *   - If it succeeds and $managed is TRUE, a \Drupal\file\FileInterface
+ *     object which describes the file.
+ *   - If it fails, FALSE.
  */
 function system_retrieve_file($url, $destination = NULL, $managed = FALSE, $replace = FILE_EXISTS_RENAME) {
   $parsed_url = parse_url($url);
