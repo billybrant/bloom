@@ -291,6 +291,10 @@ $drupal_hash_salt = 'IHQb-TmYA9EdNmtTmRwT1-wRAsObpv7G6KRKlswhmMc';
  * defined there should not be duplicated here so as to avoid conflict issues.
  */
 
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+
 /**
  * Some distributions of Linux (most notably Debian) ship their PHP
  * installations with garbage collection (gc) disabled. Since Drupal depends on

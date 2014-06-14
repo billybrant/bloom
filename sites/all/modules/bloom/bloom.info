@@ -1,0 +1,3 @@
+name = bloom
+description = Provides Bloom Functionality
+core = 7.x
