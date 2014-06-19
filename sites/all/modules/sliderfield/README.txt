@@ -23,6 +23,8 @@ FEATURES
 - Can display bubble/hint near slider handles
 - Compatible with editablefields module
 
+Notice : It's not yet possible to create two handled sliders via Field UI
+
 INSTALLATION
 ============
 

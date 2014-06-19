@@ -101,16 +101,17 @@ function _sliderfield_element_info_sliderfield() {
      */
     '#display_values' => FALSE,
     /**
-     * Format of the displaied values
+     * Format of the displayed values
      * The usage is mostly for showing $,% or other signs near the value
      */
     '#display_values_format' => '%{value}%',
     /**
-     * Display a hint/bubble near each slider handler showing the value of that handler
+     * Display a hint/bubble near each slider handle showing the value of that handle
      */
 	'#display_bubble' => FALSE,
 	/**
 	* Format of the displaied values in bubble/hint, The usage is mostly for showing $,% or other signs near the value. Use %{value}% as slider value
+	* For range slider it can have two values separated by || like "$%{value}%MIN||$%{value}%MAX"
 	*/
 	'#display_bubble_format' => '%{value}%',
     /**
@@ -124,14 +125,14 @@ function _sliderfield_element_info_sliderfield() {
     '#display_inside_fieldset' => FALSE,
     /**
      * Sliders with the same group will be linked
-     * The behavior of linked sliders depends on group_type parametr
+     * The behavior of linked sliders depends on group_type parameter
      * group name can only contain letters, numbers and underscore
      */
     '#group' => NULL,
     /**
      * same : All sliders in the same group will have the same value.
      * lock : All sliders in the same group will move with the exact same amount
-     * total : The total value of all sliders will be between min/max , incresing value of
+     * total : The total value of all sliders will be between min/max , increasing value of
      *         one slider decreases the rest of the sliders in the same group
      */
     '#group_type' => 'same',
@@ -147,7 +148,26 @@ function _sliderfield_element_info_sliderfield() {
      * for fields, since integer fields have range validation
      * values : TRUE , FALSE
      */
-    '#validate_range' => TRUE
+    '#validate_range' => TRUE,
+    /**
+     * In case there are other fields that should be sync dynamically when
+     * the slider changes
+     * value : .my_field_css_class
+     */
+    '#fields_to_sync_css_selector' => NULL,
+     /**
+      * When field is not required, and display_inputs option is inactive
+      * a checkbox will be shown allowing user to ignore the field
+      * and enter no value
+      * values : TRUE , FALSE
+      */
+     '#display_ignore_button' => FALSE,
+     /**
+      * When the slider does not have any value by enabling this option it won't show the
+      * the slider handle unless user clicks on the slider to select a value
+      * values : TRUE , FALSE
+      */
+     '#hide_slider_handle_when_no_value' => FALSE,
   );
   $types['jslider'] = $types['slider'];
   return $types;
@@ -169,8 +189,8 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
   */
 
   if (is_array($element['#value'])) {
-    $value = @$element['#value']['value'];
-    $value2 = @$element['#value']['value2'];
+    $value = isset($element['#value']['value']) ? $element['#value']['value'] : NULL;
+    $value2 = isset($element['#value']['value2']) ? $element['#value']['value2'] : NULL;
   } else {
     $value = $element['#value'];
     $value2 = NULL;
@@ -193,13 +213,14 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
     */
   }
 
-  if ($value < $element['#min']) {
-    $value = $element['#min'];
+  if (!is_null($value) && $value !== '') {
+    if ($value < $element['#min']) {
+      $value = $element['#min'];
+    }
+    if ($value > $element['#max']) {
+      $value = $element['#max'];
+    }
   }
-  if ($value > $element['#max']) {
-    $value = $element['#max'];
-  }
-
   $values = array();
   $values[] = $value;
 
@@ -212,6 +233,16 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
     }
   }
 
+  if ($element['#display_ignore_button'] && !$element['#display_inputs']) {
+      $element['ignore'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Not Selected (Uncheck to select a value)'),
+        '#value' => (is_null($value) || $value === ''),
+        '#disabled' => $element['#disabled'],
+        '#attributes' => array('class' => array('sliderfield-ignore'))
+      );
+  }
+
   // Generate input for slider
   $element['value'] = array(
     '#tree'             => TRUE,
@@ -220,14 +251,19 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
     '#type'             => 'textfield',
     '#required'    => $element['#required'],
     '#element_validate' => array('sliderfield_validate_number'),
-    //'#title'             => $element['#input_title'],
+    '#title'             => $element['#input_title'],
     '#default_value'    => $value,
     '#disabled'    => $element['#disabled'],
     '#size'             => $element['#size'],
     '#attributes'       => array('class' => array('sliderfield-value-field')),
   );
 
-  #--(Begin)--> For Ajax compatibiitly
+  //Only show title for input fields when there is more than one value
+  if (is_null($value2)) {
+    $element['value']['#title'] = NULL;
+  }
+
+  #--(Begin)--> For Ajax compatibility
   if (isset($element['#ajax'])) {
     $ajax = @$element['#ajax'];
     if (!isset($ajax['trigger_as']) && isset($element['#name'])) {
@@ -243,17 +279,17 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
     // Generate input for slider
     $element['value']['#ajax'] = $ajax;
   }
-  #--(End)--> For Ajax compatibiitly
+  #--(End)--> For Ajax compatibility
 
   if (!is_null($value2)) {
-
-    if ($value2 < $element['#min']) {
-      $value2 = $element['#min'];
+    if (!is_null($value2) && $value2 !== '') {
+      if ($value2 < $element['#min']) {
+        $value2 = $element['#min'];
+      }
+      if ($value2 > $element['#max']) {
+        $value2 = $element['#max'];
+      }
     }
-    if ($value2 > $element['#max']) {
-      $value2 = $element['#max'];
-    }
-
     if ($value2 < $value) {
       $value2 = $value;
     }
@@ -291,11 +327,21 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
       $style = "height : {$element['#slider_length']}";
     }
   }
+  if ($element['#hide_slider_handle_when_no_value']) {
+    $element['note'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="sliderfield-selectvalue-description">' . t('Please click on any part of the slider to select a value') . '</div>'
+    );
+  }
 
+ $_attributes_new = array('class' => array('sliderfield-container', $element['#slider_style']), 'style' => $style);
+ if (isset($element['#attributes']) && is_array($element['#attributes'])) {
+   $_attributes_new = drupal_array_merge_deep($_attributes_new, $element['#attributes']);
+ }
  // Create markup for slider container
   $element['container'] = array(
     '#type' => 'container',
-    '#attributes' => array('class' => array('sliderfield-container', $element['#slider_style']), 'style' => $style),
+    '#attributes' => $_attributes_new,
     '#attached' => array(
       'library' => array(
         array('system', 'ui.slider')
@@ -316,12 +362,15 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
               'step' => $element['#step'] * 1,
               'display_inputs' => $element['#display_inputs'],
               'display_values_format' => $element['#display_values_format'],
-              'display_bubble' => $element['#display_bubble'],
+              'display_bubble' => $element['#display_bubble'],'display_bubble' => $element['#display_bubble'],
               'display_bubble_format' => $element['#display_bubble_format'],
               'display_values' => $element['#display_values'],
               'group' => $element['#group'],
               'group_type' => $element['#group_type'],
-              'group_master' => $element['#group_master']
+              'group_master' => $element['#group_master'],
+              'fields_to_sync_css_selector' => $element['#fields_to_sync_css_selector'],
+              'display_ignore_button' => $element['#display_ignore_button'],
+              'hide_slider_handle_when_no_value' => $element['#hide_slider_handle_when_no_value']
             )
           ),
           'type' => 'setting',
@@ -343,8 +392,8 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
 
   if ($element['#title2']) {
     $element['title2'] = array(
-      '#type'             => 'item',
-      '#markup'    => '<label>' . $element['#title2'] . '</label>'
+      '#type'   => 'item',
+      '#markup' => '<label>' . $element['#title2'] . '</label>'
     );
   }
 
@@ -353,7 +402,7 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
     $element['container']['min_value'] = array(
       '#tree'       => TRUE,
       '#type'       => 'hidden',
-      '#default_value'       => $element['#min'],
+      '#default_value' => $element['#min'],
       '#attributes' => array('class' => array('sliderfield-min-value-field')),
     );
   }
@@ -361,7 +410,7 @@ function _sliderfield_element_sliderfield_structure($element, &$form_state) {
     $element['container']['max_value'] = array(
       '#tree'       => TRUE,
       '#type'       => 'hidden',
-      '#default_value'       => $element['#max'],
+      '#default_value' => $element['#max'],
       '#attributes' => array('class' => array('sliderfield-max-value-field')),
     );
   }
@@ -444,6 +493,9 @@ function _sliderfield_field_widget_info_sliderfield() {
     'sliderfield' => array(
       'label' => t('Slider'),
       'field types' => array('number_decimal', 'number_integer', 'number_float'),
+      'behaviors' => array(
+        'multiple values' => FIELD_BEHAVIOR_CUSTOM,
+      ),
       'settings' => array(
         'sliderfield_settings' => array(
           /**
@@ -495,12 +547,13 @@ function _sliderfield_field_widget_info_sliderfield() {
            */
           'display_values_format' => '%{value}%',
           /**
-           * Display a hint/bubble near each slider handler showing the value of that handler
+           * Display a hint/bubble near each slider handle showing the value of that handle
            */
           'display_bubble' => FALSE,
           /**
            * Format of the displaied value in bubble/hint
            * The usage is mostly for showing $,% or other signs near the value
+		   * For range slider it can have two values separated by || like "$%{value}%MIN||$%{value}%MAX"
            */
           'display_bubble_format' => '%{value}%',
           /**
@@ -512,6 +565,25 @@ function _sliderfield_field_widget_info_sliderfield() {
            *
            */
           'hide_inputs' => TRUE,
+          /**
+           * Whether the slider represents more than one value.
+           * Multiple types supported:
+           *   0/False: Disabled.
+           *   "separate" : Enabled. Uses field's multi value feature to store the values, currently only 2 values are supported.
+		   *        A separate handle for each value will be shown on slider
+           */
+          'multi_value' => FALSE,
+          /**
+           * When field is not required, and display_inputs option is inactive
+           * a checkbox will be shown allowing user to ignore the field
+           * and enter no value
+           */
+          'display_ignore_button' => TRUE,
+          /**
+           * When the slider does not have any value by enabling this option it won't show the
+           * the slider handle unless user clicks on the slider to select a value
+           */
+          'hide_slider_handle_when_no_value' => FALSE,
         )
       ),
     ),
@@ -522,9 +594,9 @@ function _sliderfield_field_widget_info_sliderfield() {
  * @param $field
  * @param $instance
  */
-function _sliderfield_field_widget_settings_form_sliderfield($field, $instance) {
+function _sliderfield_field_widget_settings_form_sliderfield($field = NULL, $instance = NULL) {
   $widget = $instance['widget'];
-
+  $form = array();
   if ($widget['type'] == 'sliderfield') {
     $settings = $widget['settings']['sliderfield_settings'];
     $form['sliderfield_settings'] = array(
@@ -535,37 +607,41 @@ function _sliderfield_field_widget_settings_form_sliderfield($field, $instance) 
       '#weight' => 0
     );
 
-    $entity_fields = field_info_instances($instance['entity_type'], $instance['bundle']);
-    $all_fields = field_info_fields();
-    $supported_field_types = array('number_decimal', 'number_integer', 'number_float');
-    $valid_fields = array();
+    if (!is_null($field) && !is_null($instance)) {
+      $entity_fields = field_info_instances($instance['entity_type'], $instance['bundle']);
+      $all_fields = field_info_fields();
+      $supported_field_types = array('number_decimal', 'number_integer', 'number_float');
+      $valid_fields = array();
 
-    // Get a list of all valid fields that we both support and are part of this entity
-    foreach ($all_fields as $_field) {
-      if (array_key_exists($_field['field_name'], $entity_fields)) {
-        if (in_array($_field['type'], array_values($supported_field_types)) && ($_field['field_name'] != $field['field_name'])) {
-          $valid_fields[$_field['field_name']] = $entity_fields[$_field['field_name']]['label'];
+      // Get a list of all valid fields that we both support and are part of this entity
+      foreach ($all_fields as $_field) {
+        if (array_key_exists($_field['field_name'], $entity_fields)) {
+          if (in_array($_field['type'], array_values($supported_field_types)) && ($_field['field_name'] != $field['field_name'])) {
+             $valid_fields[$_field['field_name']] = $entity_fields[$_field['field_name']]['label'];
+          }
         }
       }
+
+     $valid_fields = array('' => '--') + $valid_fields;
+     $form['sliderfield_settings']['adjust_field_min'] = array(
+       '#type' => 'select',
+       '#title' => t('Adjust the Minimum value from field'),
+       '#default_value' => isset($settings['adjust_field_min']) ? $settings['adjust_field_min']: '',
+       '#options' => $valid_fields,
+       '#description' => t('Select which field you would like to use to adjust the slider\'s Minimum value.'),
+     );
+
+     $valid_fields = array('' => '--') + $valid_fields;
+     $form['sliderfield_settings']['adjust_field_max'] = array(
+        '#type' => 'select',
+        '#title' => t('Adjust the Maximum value from field'),
+        '#default_value' => isset($settings['adjust_field_max']) ? $settings['adjust_field_max']: '',
+        '#options' => $valid_fields,
+        '#description' => t('Select which field you would like to use to adjust the slider\'s Maximum value.'),
+      );
     }
 
-    $valid_fields = array('' => '--') + $valid_fields;
-    $form['sliderfield_settings']['adjust_field_min'] = array(
-      '#type' => 'select',
-      '#title' => t('Adjust the Minimum value from field'),
-      '#default_value' => isset($settings['adjust_field_min']) ? $settings['adjust_field_min']: '',
-      '#options' => $valid_fields,
-      '#description' => t('Select which field you would like to use to adjust the slider\'s Minimum value.'),
-    );
 
-    $valid_fields = array('' => '--') + $valid_fields;
-    $form['sliderfield_settings']['adjust_field_max'] = array(
-      '#type' => 'select',
-      '#title' => t('Adjust the Maximum value from field'),
-      '#default_value' => isset($settings['adjust_field_max']) ? $settings['adjust_field_max']: '',
-      '#options' => $valid_fields,
-      '#description' => t('Select which field you would like to use to adjust the slider\'s Maximum value.'),
-    );
 
     $form['sliderfield_settings']['animate'] = array(
       '#type' => 'select',
@@ -637,7 +713,7 @@ function _sliderfield_field_widget_settings_form_sliderfield($field, $instance) 
     $form['sliderfield_settings']['display_bubble'] = array(
       '#type' => 'checkbox',
       '#title' => t('Display bubble/hint'),
-      '#description' => t('Display a hint/bubble near each slider handler showing the value of that handler.'),
+      '#description' => t('Display a hint/bubble near each slider handle showing the value of that handle.'),
       '#default_value' => $settings['display_bubble']
     );
 	if (!isset($settings['display_bubble_format'])) $settings['display_bubble_format'] = '%{value}%';
@@ -645,7 +721,7 @@ function _sliderfield_field_widget_settings_form_sliderfield($field, $instance) 
       '#type' => 'textfield',
 	  '#size' => 15,
       '#title' => t('Display bubble/hint format'),
-      '#description' => t('Format of the displaied values in bubble/hint, The usage is mostly for showing $,% or other signs near the value. Use %{value}% as slider value'),
+      '#description' => t('Format of the displaied values in bubble/hint, The usage is mostly for showing $,% or other signs near the value. Use %{value}% as slider value. For range slider it can have two values separated by || like "$%{value}%MIN||$%{value}%MAX"'),
       '#default_value' => $settings['display_bubble_format']
     );
     $form['sliderfield_settings']['slider_length'] = array(
@@ -660,6 +736,28 @@ function _sliderfield_field_widget_settings_form_sliderfield($field, $instance) 
       '#title' => t('Hide Input Textfields'),
       '#description' => t('If enabled displays only the slider and hides input textfields.'),
       '#default_value' => $settings['hide_inputs']
+    );
+    $form['sliderfield_settings']['multi_value'] = array(
+      '#type' => 'select',
+      '#title' => t('Multi Value'),
+      '#options' => array(
+        FALSE => t('Disable'),
+        'separate' => t('Enable')
+      ),
+      '#description' => t('Uses field\'s multi value feature to store the values, currently only 2 values are supported. A separate handle for each value will be shown on slider'),
+      '#default_value' => (!isset($settings['multi_value'])) ? '' : $settings['multi_value']
+    );
+    $form['sliderfield_settings']['display_ignore_button'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Display ignore button'),
+      '#description' => t('When field is not required, and hide input fields option is active a checkbox will be shown allowing user to ignore the field allowing user to ignore the field and enter no value.'),
+      '#default_value' => $settings['display_ignore_button'],
+    );
+    $form['sliderfield_settings']['hide_slider_handle_when_no_value'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Hide slider handle when there is no value'),
+      '#description' => t('When the slider does not have any value by enabling this option it won\'t show the the slider handle unless user clicks on the slider to select a value.'),
+      '#default_value' => $settings['hide_slider_handle_when_no_value']
     );
   }
 
@@ -680,9 +778,14 @@ function _sliderfield_field_widget_settings_form_sliderfield($field, $instance) 
 function _sliderfield_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
   switch ($instance['widget']['type']) {
     case 'sliderfield':
+      if (!is_null($field)) {
+        $multiple = $field['cardinality'] > 1 || $field['cardinality'] == FIELD_CARDINALITY_UNLIMITED;
+      }
+	  //$has_value = isset($items[0][$value_key]);
+
       $settings = $instance['widget']['settings']['sliderfield_settings'];
       $value = NULL;
-      if (!empty($items) && isset($items[$delta])) {
+      if (!empty($items) && isset($items[$delta]) && isset($items[$delta]['value'])) {
         $value = $items[$delta]['value'];
       } else {
         $value = $instance['settings']['min'];
@@ -711,7 +814,7 @@ function _sliderfield_field_widget_form(&$form, &$form_state, $field, $instance,
         '#animate' => $settings['animate'],
         '#adjust_field_min' => isset($settings['adjust_field_min'])? '.' . drupal_clean_css_identifier('sliderfield-field-adjust-' . $settings['adjust_field_min']) : '',
         '#adjust_field_max' => isset($settings['adjust_field_max'])? '.' . drupal_clean_css_identifier('sliderfield-field-adjust-' . $settings['adjust_field_max']) : '',
-        '#disabled' => FALSE,
+        '#disabled' => (isset($element['#disabled']))?$element['#disabled']:FALSE,
         '#max' => $instance['settings']['max'],
         '#min' => $instance['settings']['min'],
         '#orientation' => $settings['orientation'],
@@ -725,7 +828,10 @@ function _sliderfield_field_widget_form(&$form, &$form_state, $field, $instance,
         '#slider_length' => $settings['slider_length'],
         '#display_inside_fieldset' => FALSE,
         '#validate_range' => FALSE,
-		'#display_bubble' => $settings['display_bubble']
+        '#display_bubble' => $settings['display_bubble'],
+        '#display_ignore_button' => $settings['display_ignore_button'],
+        '#hide_slider_handle_when_no_value' => $settings['hide_slider_handle_when_no_value'],
+        '#fields_to_sync_css_selector' => @$settings['fields_to_sync_css_selector']
       );
       break;
   }
@@ -767,8 +873,9 @@ function sliderfield_sliderfield_container_validate($element, &$form_state) {
   if (isset($element_value['value'])) {
     $element_value = $element_value['value'];
   }
+
   #--(Begin)--> Correct the value
-  form_set_value($element, $element_value, $form_state);
+  form_set_value($element, array('item' => $element_value), $form_state);
   #--(End)--> Correct the value
 }
 
