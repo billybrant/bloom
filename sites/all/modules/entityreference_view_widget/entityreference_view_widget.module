@@ -55,7 +55,12 @@ function entityreference_view_widget_field_widget_info() {
   $widgets['entityreference_view_widget'] = array(
     'label' => t('View'),
     'description' => t('An advanced, view-based widget.'),
-    'field types' => array('entityreference'),
+    'field types' => array(
+      'entityreference',
+      'commerce_customer_profile_reference',
+      'commerce_line_item_reference',
+      'commerce_product_reference',
+    ),
     'behaviors' => array(
       'multiple values' => FIELD_BEHAVIOR_CUSTOM,
       'default value' => FIELD_BEHAVIOR_NONE,
@@ -76,8 +81,19 @@ function entityreference_view_widget_field_widget_settings_form($field, $instanc
     // Get a list of all views that contain a "Entityreference View Widget" display.
     $options = array();
     $displays = views_get_applicable_views('entityreference view display');
+
+    if (strpos($field['type'], 'commerce_') === 0) {
+      $target_type = str_replace('_reference', '', $field['type']);
+    }
+    else {
+      $target_type = $field['settings']['target_type'];
+    }
+
     foreach ($displays as $data) {
       list($view, $display_id) = $data;
+      if ($view->base_table != $target_type) {
+        continue;
+      }
       $view_name = !empty($view->human_name) ? $view->human_name : $view->name;
       $options[$view->name . '|' . $display_id] = check_plain($view_name . ' | ' . $view->display_handler->display->display_title);
     }
@@ -136,14 +152,20 @@ function entityreference_view_widget_field_widget_form(&$form, &$form_state, $fi
   $settings = array(
     'langcode' => $langcode,
     'table_id' => $frontend_id . '-values',
-    'target_type' => $field['settings']['target_type'],
     'element' => $parents_path,
     'instance' => $instance,
     'field' => $field,
     'index' => $index,
+    'column' => key($field['columns']),
   );
   // Append the widget settings to the array.
   $settings += $instance['widget']['settings'];
+  if (strpos($field['type'], 'commerce_') === 0) {
+    $settings['target_type'] = str_replace('_reference', '', $field['type']);
+  }
+  else {
+    $settings['target_type'] = $field['settings']['target_type'];
+  }
 
   $add_more_text = ($field['cardinality'] == 1) ? t('Add item') : t('Add items');
   $element['add_more'] = array(
@@ -163,7 +185,7 @@ function entityreference_view_widget_field_widget_form(&$form, &$form_state, $fi
 
   $entity_ids = array();
   foreach ($items as $item) {
-    $entity_ids[] = $item['target_id'];
+    $entity_ids[] = $item[$settings['column']];
   }
   $element += entityreference_view_widget_rows($entity_ids, $settings);
 
@@ -260,21 +282,28 @@ function _entityreference_view_widget_add_resources(&$form) {
  */
 function entityreference_view_widget_validate($element, &$form_state, $form) {
   array_pop($element['#parents']);
+  $form_existing = drupal_array_get_nested_value($form, $element['#parents']);
+
+  // Modules like entityreference_prepopulate might hide or disable the field,
+  // in that case we shouldn't check for user input.
+  if (!empty($form_existing['#disabled']) || (isset($form_existing['#access']) && !$form_existing['#access'])) {
+    return;
+  }
+
   $input = drupal_array_get_nested_value($form_state['input'], $element['#parents']);
   $settings = $element['#ervw_settings'];
 
   if (!empty($input)) {
     $entity_ids = array();
     foreach ($input as $value) {
-      if (!empty($value['target_id'])) {
-        $entity_ids[] = $value['target_id'];
+      if (!empty($value[$settings['column']])) {
+        $entity_ids[] = $value[$settings['column']];
         $valid = TRUE;
       }
     }
     $form_state['ervw_ids'][$settings['index']] = $entity_ids;
     $rows = entityreference_view_widget_rows($entity_ids, $settings);
     // Put back the rows in the form.
-    $form_existing = drupal_array_get_nested_value($form, $element['#parents']);
     drupal_array_set_nested_value($form, $element['#parents'], $form_existing + $rows);
   }
   form_set_value($element, $input, $form_state);
@@ -292,37 +321,34 @@ function entityreference_view_widget_modal_form($form, &$form_state, $context) {
   $form['view-markup'] = array(
     '#markup' => $context['view_markup'],
   );
-  // Do not render the submit buttons if there's no views result.
-  if (!empty($context['view']->result)) {
-    $form['selected_entity_ids'] = array(
-      '#type' => 'hidden',
+  $form['selected_entity_ids'] = array(
+    '#type' => 'hidden',
+    '#attributes' => array(
+      'id' => 'ervw-modal-form-selected-entity-ids',
+    ),
+  );
+  $form['submit'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array('entityreference-view-widget-modal-submit'),
+      'data-table-id' => $context['settings']['table_id'],
+    ),
+    '#value' => '',
+    'button_add' => array(
+      '#type' => 'button',
+      '#value' => t('Submit'),
       '#attributes' => array(
-        'id' => 'ervw-modal-form-selected-entity-ids',
+        'class' => array('button'),
       ),
+      '#ajax' => array(
+        'callback' => 'entityreference_view_widget_ajax',
+      ),
+    ),
+  );
+  if ($context['settings']['field']['cardinality'] != 1) {
+    $form['submit']['select_all'] = array(
+      '#markup' => l(t('Select all'), '', array('attributes' => array('id' => 'entityreference-view-widget-select-all'))),
     );
-    $form['submit'] = array(
-      '#type' => 'container',
-      '#attributes' => array(
-        'class' => array('entityreference-view-widget-modal-submit'),
-        'data-table-id' => $context['settings']['table_id'],
-      ),
-      '#value' => '',
-      'button_add' => array(
-        '#type' => 'button',
-        '#value' => t('Submit'),
-        '#attributes' => array(
-          'class' => array('button'),
-        ),
-        '#ajax' => array(
-          'callback' => 'entityreference_view_widget_ajax',
-        ),
-      ),
-    );
-    if ($context['settings']['field']['cardinality'] != 1) {
-      $form['submit']['select_all'] = array(
-        '#markup' => l(t('Select all'), '', array('attributes' => array('id' => 'entityreference-view-widget-select-all'))),
-      );
-    }
   }
   return $form;
 }
@@ -394,14 +420,14 @@ function entityreference_view_widget_rows($entity_ids, $settings) {
       $name = $settings['element'] . '[' . $settings['langcode'] . '][' . $delta . ']';
 
       $rows[] = array(
-        'target_id' => array(
+        $settings['column'] => array(
           '#type' => 'checkbox',
           '#delta' => $delta,
           '#field_suffix' => '<label class="option" for="' . $frontend_id . '">' . $label . '</label>',
           '#return_value' => $entity_id,
           '#value' => $entity_id,
           '#title_display' => 'after',
-          '#name' => $name . '[target_id]',
+          '#name' => $name . '[' . $settings['column'] . ']',
           '#attributes' => array(
             'checked' => 'checked',
             'id' => $frontend_id,
@@ -516,11 +542,12 @@ function theme_entityreference_view_widget_widget($variables) {
 function theme_entityreference_view_widget_rows($variables) {
   $zebra = array('even' => 'odd');
 
+  $settings = $variables['rows']['#widget_settings'];
   foreach (element_children($variables['rows']) as $row) {
     $output[$row]  = '<tr class="draggable ' . current($zebra) . '">';
     $output[$row] .= '<td class="field-multiple-drag"></td>';
-    $output[$row] .= '<td>' . render($variables['rows'][$row]['target_id']) . '</td>';
-    if ($variables['rows']['#widget_settings']['field']['cardinality'] !== '1') {
+    $output[$row] .= '<td>' . render($variables['rows'][$row][$settings['column']]) . '</td>';
+    if ($settings['field']['cardinality'] !== '1') {
       $output[$row] .= '<td class="delta-order tabledrag-hide">' . render($variables['rows'][$row]['_weight']) . '</td>';
     }
     $output[$row] .= '</tr>';
