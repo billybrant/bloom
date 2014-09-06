@@ -6,7 +6,7 @@
 
 function bloom_node_access($node, $op, $account) {
   $type = is_string($node) ? $node : $node->type;
-
+  
   if ( $type == 'hipaa_pii') {
       if (in_array('HIPAAmaster', $account->roles)) {
           return NODE_ACCESS_ALLOW;
