@@ -406,6 +406,9 @@ function entityreference_view_widget_rows($entity_ids, $settings) {
     $weight_options = drupal_map_assoc(range(- $max_delta, $max_delta));
     $delta = 0;
     foreach ($entity_ids as $entity_id) {
+      if (!isset($entities[$entity_id])) {
+        continue;
+      }
       $frontend_id = drupal_html_id('edit-' . $settings['element'] . '-' . $settings['langcode'] . '-' . $delta);
       $label = entity_label($settings['target_type'], $entities[$entity_id]);
       $name = $settings['element'] . '[' . $settings['langcode'] . '][' . $delta . ']';
@@ -414,7 +417,7 @@ function entityreference_view_widget_rows($entity_ids, $settings) {
         $settings['column'] => array(
           '#type' => 'checkbox',
           '#delta' => $delta,
-          '#field_suffix' => '<label class="option" for="' . $frontend_id . '">' . $label . '</label>',
+          '#field_suffix' => '<label class="option" for="' . $frontend_id . '">' . check_plain($label) . '</label>',
           '#return_value' => $entity_id,
           '#value' => $entity_id,
           '#title_display' => 'after',

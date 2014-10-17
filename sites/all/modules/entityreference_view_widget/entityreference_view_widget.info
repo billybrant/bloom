@@ -9,9 +9,9 @@ dependencies[] = ctools
 files[] = views/entityreference_view_widget_handler_field_checkbox.inc
 files[] = views/entityreference_view_widget_plugin_display.inc
 
-; Information added by Drupal.org packaging script on 2014-09-01
-version = "7.x-2.0-rc2"
+; Information added by Drupal.org packaging script on 2014-09-24
+version = "7.x-2.0-rc3"
 core = "7.x"
 project = "entityreference_view_widget"
-datestamp = "1409580562"
+datestamp = "1411553629"
 
